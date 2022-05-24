@@ -23,12 +23,12 @@ int main()
 
 int isPossible (string S)
 {
-    map<char,int>mpp;
+    unordered_map<char,int>mpp;
     for(auto i:S)
     {
         auto it=mpp.find(i);
         if(it!=mpp.end())
-        it->second=(it->second)+1;
+        (it->second)++;
         else
         mpp.insert({i,1});
     }
