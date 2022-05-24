@@ -26,21 +26,15 @@ int isPossible (string S)
     map<char,int>mpp;
     for(auto i:S)
     {
-        map<char,int>::iterator it;
-        it=mpp.find(i);
+        auto it=mpp.find(i);
         if(it!=mpp.end())
-        {
-            it->second=(it->second)+1;
-        }
+        it->second=(it->second)+1;
         else
         mpp.insert({i,1});
     }
     int odd=0;
     for(auto j:mpp)
-    {
-        if((j.second)%2!=0)odd++;
-        
-    }
+    if((j.second)%2!=0)odd++;
     if(odd>1)return 0;
     return 1;
 }
