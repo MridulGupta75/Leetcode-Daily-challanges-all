@@ -16,9 +16,7 @@ public:
          for(int i=0;i<n;i++)
          {
             if(nums[i]>=0)
-            {
-                if(nums[i]==0&&z=="positive"||(nums[i]!=0))n=i;
-            }
+            if(nums[i]==0&&z=="positive"||(nums[i]!=0))n=i;
          }
         return n;
     }
