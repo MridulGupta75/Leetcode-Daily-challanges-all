@@ -19,7 +19,6 @@ public:
             {
                 if(nums[i]==0&&z==0)n=i;
                 else if(nums[i]!=0)n=i;
-                else continue;
             }
          }
         return n;
