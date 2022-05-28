@@ -17,8 +17,7 @@ public:
          {
             if(nums[i]>=0)
             {
-                if(nums[i]==0&&z=="positive")n=i;
-                else if(nums[i]!=0)n=i;
+                if(nums[i]==0&&z=="positive"||(nums[i]!=0))n=i;
             }
          }
         return n;
