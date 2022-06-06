@@ -21,6 +21,6 @@ public:
             if(l1==NULL)l1=headA;
             
         }
-        return l1;
+        return l;
     }
 };
