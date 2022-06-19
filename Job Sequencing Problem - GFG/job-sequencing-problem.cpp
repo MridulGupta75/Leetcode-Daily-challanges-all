@@ -41,9 +41,9 @@ class Solution
             if(arr[i].dead>max)
             max=arr[i].dead;
         }
-        bool profa[max];
-        for(int i=0;i<max;i++)
-        profa[i]=false;
+        bool profa[max]={false};
+        // for(int i=0;i<max;i++)
+        // profa[i]=false;
         int no=1,pro=arr[0].profit;
         profa[(arr[0].dead)-1]=true;
         for(int i=1;i<n;i++)
