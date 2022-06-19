@@ -54,7 +54,7 @@ class Solution
                 no++;
                 profa[(arr[i].dead)-1]=true;
             }
-            else if(profa[(arr[i].dead)-1]==true)
+            else 
             {
                 int k=arr[i].dead-2;
                 while(k>=0)
@@ -63,7 +63,7 @@ class Solution
                     {
                   pro+=arr[i].profit;
                   no++;
-                profa[k]=true;
+                  profa[k]=true;
                     break;
                     }
                     k--;
