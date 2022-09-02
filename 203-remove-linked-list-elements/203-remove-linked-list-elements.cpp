@@ -21,6 +21,7 @@ public:
             if(head->val==val)
             {   
                 head=head->next;
+                delete t;
                 t=head;
                 if(tn!=NULL)
                 tn=t->next;
