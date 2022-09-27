@@ -2,11 +2,7 @@ class Solution {
 public:
     int countPoints(string rings) {
      int arr[3][10]={};
-        // for(int i=0;i<3;i++)
-        // {
-        //     for(int j=0;j<10;j++)
-        //         arr[i][j]=0;
-        // }
+      
         for(int i=0;i<rings.length();i=i+2)
         {
             int k=-1;
@@ -25,12 +21,5 @@ public:
         }
         
         return c;
-        
-        
-        
-        
-        
-   
-        
-    }
+ }
 };
