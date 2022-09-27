@@ -16,10 +16,7 @@ public:
         int x=itr->second;
         int k=0;
         for(auto it =sol.begin();it!=sol.end();it++)
-        {
             if(it->second!=x)return false;
-            
-        }
         return true;
     }
 };
