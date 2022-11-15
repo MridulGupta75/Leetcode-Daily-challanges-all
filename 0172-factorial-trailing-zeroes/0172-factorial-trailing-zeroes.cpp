@@ -2,9 +2,11 @@ class Solution {
 public:
     int trailingZeroes(int n) {
         int sum=0,i=1;
-        while(n/pow(5,i)>0)
+        int x=1;
+        while(x>0)
         {
-            sum+=n/pow(5,i);
+            x=floor(n/pow(5,i));
+            sum+=x;
             i++;
             
         }
