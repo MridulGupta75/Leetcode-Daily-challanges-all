@@ -17,9 +17,7 @@ public:
         while(l!=NULL)
         {
             if(l->next==NULL)
-            {
-                break;
-            }
+            break;
             if(l->next->next==NULL)
             {
                 l1= l1->next;
