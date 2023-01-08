@@ -14,19 +14,14 @@ public:
     {
         if(head==NULL)return;
         getVal(head->next,&(*c),&(*sum));
-        
-        int k=pow(2,(*c));
-       
-        *sum=*sum+(k*(head->val));
-         printf("%d",head->val);
+        *sum=*sum+(pow(2,(*c))*(head->val));
         *c=*c+1;
-        // return sum;
+       
     }
     
     int getDecimalValue(ListNode* head) {
          int c=0,sum=0;
          getVal(head,&c,&sum);
-        // printf("%d",y);
         return sum;
     }
 };
