@@ -4,11 +4,8 @@ public:
     int fun(vector<int>&nums,int i,int j, vector<vector<int>>&dp)
     {
         if(i==j)return nums[j];
-          if(dp[i][j]==-1){
-        int choosefirst=nums[i]-fun(nums,i+1,j,dp);
-         int chooseleft=nums[j]-fun(nums,i,j-1,dp);
-        dp[i][j]= max(choosefirst,chooseleft);
-          }
+          if(dp[i][j]==-1)
+        dp[i][j]= max(nums[i]-fun(nums,i+1,j,dp),nums[j]-fun(nums,i,j-1,dp));
         return dp[i][j];
     }
     bool PredictTheWinner(vector<int>& nums) {
