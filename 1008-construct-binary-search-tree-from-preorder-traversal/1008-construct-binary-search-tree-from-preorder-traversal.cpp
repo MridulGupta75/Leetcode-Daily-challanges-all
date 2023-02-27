@@ -11,28 +11,27 @@
  */
 class Solution {
 public:
-    void makeBst(TreeNode*&temp,int data)
+    
+    void makeBst(int data, TreeNode*&temp)
     {
         if(temp==NULL)
         {
-            temp=new TreeNode(data);
-            return;
+             temp= new TreeNode(data);
+            return ;
         }
-        else if(temp->val<data)
-        makeBst(temp->right,data);
-        else if(temp->val>data)
-        makeBst(temp->left,data);
-        
+        else if(data>temp->val)
+            makeBst(data,temp->right);          
+         else if(data<temp->val)
+            makeBst(data,temp->left);     
     }
-    
     TreeNode* bstFromPreorder(vector<int>& preorder) {
         
         
         TreeNode*root= new TreeNode(preorder[0]);
         TreeNode *temp=root;
-       for(int i=1;i<preorder.size();i++)
-            makeBst(temp,preorder[i]);
-        return root;
+        for(int i=1;i<preorder.size();i++)
+            makeBst(preorder[i],temp);
+            return root;
         
     }
 };
