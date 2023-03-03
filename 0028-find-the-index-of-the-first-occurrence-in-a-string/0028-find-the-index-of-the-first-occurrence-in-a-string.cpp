@@ -10,7 +10,6 @@ public:
              str+=haystack[k]; 
                 k++;
             }
-     // cout<<k;
         if(str==needle)return (k-needle.size());
         for(int i=k;i<haystack.size();i++)
         {
@@ -21,7 +20,7 @@ public:
            if(str==needle)return (i+1-needle.size());
          
         }
-        // cout<<str<<k;
+    
         return -1;
                
         
