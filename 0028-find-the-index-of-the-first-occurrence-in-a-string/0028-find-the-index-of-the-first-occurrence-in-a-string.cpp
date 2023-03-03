@@ -16,7 +16,6 @@ public:
          
             str.erase(0,1);
             str+=haystack[i];
-            cout<<str<<endl;
            if(str==needle)return (i+1-needle.size());
          
         }
