@@ -8,32 +8,29 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution
-{
-    vector<int> v;
+class Solution {
+    vector<int>v;
     int n;
-
 public:
-    Solution(ListNode *head)
-    {
-        ListNode *ptr = head;
-        while (ptr)
+    Solution(ListNode* head) {
+        while(head!=NULL)
         {
-            v.push_back(ptr->val);
-            ptr = ptr->next;
+            v.push_back(head->val);
+            head=head->next;
         }
-        n = v.size();
+        n=v.size();
     }
-
-    int getRandom()
-    {
-        static int i = 0;
-        if (i == 0)
+    
+    int getRandom() {
+        static int i=0;
+        if(i==0)
         {
             srand(time(NULL));
             i++;
         }
-        return v[rand() % n];
+         return v[rand()%n];
+        
+        
     }
 };
 
