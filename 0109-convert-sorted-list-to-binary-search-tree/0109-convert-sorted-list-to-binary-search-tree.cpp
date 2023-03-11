@@ -31,7 +31,7 @@ public:
         return root;
         
     }
-    ListNode * getMiddle(ListNode* &head){
+    ListNode * getMiddle(ListNode* head){
         ListNode*fast=head,*slow=head,*prev=NULL;
         while(fast!=NULL&&fast->next!=NULL)
         {
