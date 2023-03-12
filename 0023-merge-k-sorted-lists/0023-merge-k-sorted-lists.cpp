@@ -34,8 +34,7 @@ public:
                     {
                         if(temp->val>=value)  
                         {
-                        pre->next=p,p->next=temp;
-                        break;
+                        pre->next=p,p->next=temp;break;
                         }
                         temp=temp->next,pre=pre->next;
                     }
