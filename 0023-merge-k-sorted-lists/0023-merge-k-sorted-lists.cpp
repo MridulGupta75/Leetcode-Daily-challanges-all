@@ -25,32 +25,23 @@ public:
         {
             while(it!=NULL)
             {
-                ListNode*p=new ListNode(it->val);
-                if(head->val>=it->val)
-                {
-                    p->next=head;
-                    head=p;
-                }
+                int value=it->val;ListNode*kk=it;it=it->next,delete kk;ListNode*p=new ListNode(value);
+                if(head->val>=value) p->next=head,head=p;
                 else
                 {
                     ListNode*pre=head,*temp=head->next;
                     while(temp!=NULL)
                     {
-                        if(temp->val>=it->val)
+                        if(temp->val>=value)  
                         {
-                            pre->next=p;
-                            p->next=temp;
-                            break;
+                        pre->next=p,p->next=temp;
+                        break;
                         }
-                        temp=temp->next;
-                        pre=pre->next;
+                        temp=temp->next,pre=pre->next;
                     }
-                    if(temp==NULL)
-                        pre->next=p;
+                    if(temp==NULL) pre->next=p;
                 }
-                ListNode*kk=it;
-                it=it->next;
-                delete kk;
+                
             }
         }
         
