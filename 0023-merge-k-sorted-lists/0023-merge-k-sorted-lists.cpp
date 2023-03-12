@@ -28,7 +28,6 @@ public:
                 ListNode*p=new ListNode(it->val);
                 if(head->val>=it->val)
                 {
-                    
                     p->next=head;
                     head=p;
                 }
