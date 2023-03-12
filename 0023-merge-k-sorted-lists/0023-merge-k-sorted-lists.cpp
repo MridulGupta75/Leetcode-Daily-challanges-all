@@ -49,9 +49,9 @@ public:
                     if(temp==NULL)
                         pre->next=p;
                 }
-                // ListNode*kk=it;
+                ListNode*kk=it;
                 it=it->next;
-                // free(kk);
+                delete kk;
             }
         }
         
