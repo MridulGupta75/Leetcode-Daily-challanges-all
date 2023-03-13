@@ -19,7 +19,9 @@ public:
     
     bool isEq(TreeNode* r,TreeNode* l)
     {
-      if(!r||!l)return r==l;
+      // if(!r||!l)return r==l;
+        if(r==NULL&&l==NULL)return true;
+        else if(r==NULL||l==NULL)return false;
         
         if(r->val==l->val)
         return(isEq(r->right,l->left)&&isEq(r->left,l->right));
