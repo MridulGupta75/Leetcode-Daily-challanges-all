@@ -11,20 +11,22 @@
  */
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& ino, vector<int>& post) {
-    int i1 = post.size()-1;
-        return solve(i1,ino,post,0,ino.size()-1);
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        int i=postorder.size()-1;
+        return(tree(inorder,postorder,i,0,inorder.size()-1));
+        
     }
-    TreeNode* solve(int &i,vector<int> &in,vector<int> &post,int l,int r){
-        if(l>r)return NULL;
-        int x = r;
-        while(post[i] != in[x]){
-            x--;
-        }
-        i--;
-        TreeNode* root = new TreeNode(in[x]);
-        root->right = solve(i,in,post,x+1,r);
-        root->left = solve(i,in,post,l,x-1);
-        return root;
-    }
+    
+     TreeNode* tree(vector<int>& inorder, vector<int>& postorder,int&i,int l,int r)
+     {
+         if(l>r)return NULL;
+         int x=r;
+         while(postorder[i]!=inorder[x]) x--;
+         i--;
+         TreeNode* root=new TreeNode(inorder[x]);
+         root->right=tree(inorder,postorder,i,x+1,r);
+         root->left=tree(inorder,postorder,i,l,x-1);
+         return root;
+     }
+    
 };
