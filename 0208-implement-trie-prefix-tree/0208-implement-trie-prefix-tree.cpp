@@ -1,29 +1,75 @@
+typedef struct trie_node{
+    struct trie_node* arr[26];
+    bool flag=false;
+    
+    bool check(char ch)
+    {
+        return(arr[ch-'a']!=NULL);
+    }
+    
+    void ins(char ch,struct trie_node*node)
+    {
+       arr[ch-'a']=node;   
+    }
+    
+    struct trie_node* next(char ch)
+    {
+       return(arr[ch-'a']) ;       
+    }
+    
+ 
+    
+    
+  
+}tn;
 class Trie {
+    tn*root;
 public:
-
-unordered_map<string,int>mpp,mp;
+    
     Trie() {
+        root=new tn();
         
     }
     
     void insert(string word) {
-        mpp[word]++;
-        string s;
-        for(auto it : word)
+        tn*node=root;
+        for(int i=0;i<word.length();i++)
         {
-            s.push_back(it);
-            if(mp[s]==0) mp[s]++;
+            if(!node->check(word[i]))
+            {
+                node->ins(word[i],new tn());
+            }
+            
+            node=node->next(word[i]);
         }
+       node->flag=true;
+        
     }
     
     bool search(string word) {
-        if(mpp[word]) return true;
+        
+        tn*node=root;
+      for(int i=0;i<word.length();i++)
+        {
+          if(!node->check(word[i]))return false;
+          node=node->next(word[i]);
+          
+      }
+        if(node->flag==true)return true;
         return false;
+        
     }
     
     bool startsWith(string prefix) {
-        if(mp[prefix]) return true;
-        return false;
+            tn*node=root;
+      for(int i=0;i<prefix.length();i++)
+        {
+          if(!node->check(prefix[i]))return false;
+          node=node->next(prefix[i]);
+          
+      }
+        return true;
+        
     }
 };
 
