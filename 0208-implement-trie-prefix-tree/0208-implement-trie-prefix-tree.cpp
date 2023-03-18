@@ -22,6 +22,9 @@ typedef struct trie_node{
     
   
 }tn;
+
+
+
 class Trie {
     tn*root;
 public:
