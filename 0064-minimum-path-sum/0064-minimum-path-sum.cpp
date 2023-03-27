@@ -1,38 +1,4 @@
-// class Solution {
-// public:
-//     int minPathSum(vector<vector<int>>& grid) {
-//         int ans=INT_MAX;
-   
-//                 ans=recurSum(grid,0,0,0);
-       
-      
-//        return ans;
-        
-//     }
-//  int recurSum(vector<vector<int>> grid,int i,int j,int sum)
-//  {
-//      int down=INT_MAX,right=INT_MAX;
-//      if(i==grid.size()-1&&j==grid[0].size()-1)return sum+grid[i][j];
-//      if(i>=grid.size()-1&&j<grid[0].size()-1)
-//      {
-//           right=recurSum(grid,i,j+1,sum+grid[i][j]);
-         
-//      }
-//       if(i<grid.size()-1&&j>=grid[0].size()-1)
-//      {
-//          down=recurSum(grid,i+1,j,sum+grid[i][j]);
-         
-//      }
-//      else
-//      {
-      
-//           right=recurSum(grid,i,j+1,sum+grid[i][j]);
-//           down=recurSum(grid,i+1,j,sum+grid[i][j]);
-         
-//      }
-//      return min(right,down);
-//  }
-// };
+
 
 
 
