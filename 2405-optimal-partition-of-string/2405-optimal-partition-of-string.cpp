@@ -6,10 +6,7 @@ public:
         for(auto it:s)
         {
             if(st.find(it)!=st.end())
-            {
-               st.clear();
-                ans++;
-            }
+            st.clear(),ans++;
             st.insert(it);
         }
         return ans;
