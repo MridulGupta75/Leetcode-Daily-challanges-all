@@ -2,15 +2,15 @@ class Solution {
 public:
     int partitionString(string s) {
         int ans=1;
-        set<char>ch;
+        set<char>st;
         for(auto it:s)
         {
-            if(ch.find(it)!=ch.end())
+            if(st.find(it)!=st.end())
             {
-                ch.clear();
+               st.clear();
                 ans++;
             }
-            ch.insert(it);
+            st.insert(it);
         }
         return ans;
     }
