@@ -19,7 +19,7 @@ public:
 //         while(!st.empty())
 //         {
 //             ans=st.top()+ans;
-//             // cout<<st.top();
+//          
 //             st.pop();
 //         }
 //         return ans;
@@ -27,8 +27,6 @@ public:
             ans += st.top();
             st.pop();
         }
-        
-        // reverse the result string and return it as the output
         reverse(ans.begin(), ans.end());
         return ans;
         
