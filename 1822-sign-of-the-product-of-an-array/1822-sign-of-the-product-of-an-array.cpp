@@ -9,16 +9,13 @@ public:
             {
                 if(nums[i]==0)return 0;
                  if(nums[i]<0)c++;
-                i++;
-                j--;
+                i++,j--;
             }
             else{
             if(nums[i]==0||nums[j]==0)return 0;
             if(nums[i]<0)c++;
             if(nums[j]<0)c++;
-            i++;
-            j--;
-            cout<<c;
+            i++, j--;
             }
         }
         return c%2==0? 1:-1;
