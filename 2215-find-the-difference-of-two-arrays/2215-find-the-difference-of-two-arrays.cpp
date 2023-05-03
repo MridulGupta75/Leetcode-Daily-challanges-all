@@ -6,16 +6,9 @@ public:
         vector<int>v1;
         vector<int>v2;
         vector<vector<int>>sol;
-        for(int num:s)
-        {
-            if(s1.count(num)==0)
-                v1.push_back(num);
-        }
-        for(int num:s1)
-        {
-            if(s.count(num)==0)
-                v2.push_back(num);
-        }
+        for(int num:s) if(s1.count(num)==0) v1.push_back(num);
+        for(int num:s1) if(s.count(num)==0) v2.push_back(num);
+        
         sol.push_back(v1);
         sol.push_back(v2);
         return sol;
