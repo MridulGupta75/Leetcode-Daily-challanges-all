@@ -21,16 +21,19 @@ public:
           }
               
         }
-        
-        int j=nums.size()-1;
-        if(flag==1)
+         if(flag==1)
         pos++;
-        while(pos<j)
-        {
-            swap(nums[pos],nums[j]);
-            pos++;
-            j--;
-        }
+        reverse(nums.begin()+pos,nums.end());
+        
+        // int j=nums.size()-1;
+        // if(flag==1)
+        // pos++;
+        // while(pos<j)
+        // {
+        //     swap(nums[pos],nums[j]);
+        //     pos++;
+        //     j--;
+        // }
         
     }
 };
