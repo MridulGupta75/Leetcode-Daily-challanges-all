@@ -27,8 +27,8 @@ public:
         int j=nums.size()-1;
         while(i<j)
         {
-            swap(nums[i],nums[j]);
-            i++,j--;
+            swap(nums[i++],nums[j--]);
+          
         }
         
     }
