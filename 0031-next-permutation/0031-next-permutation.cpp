@@ -21,15 +21,11 @@ public:
         }
         int i=pos+1;
         if(pos==0&&flag==0)
-        {
-            i=pos;
-        }
+         i=pos;
         int j=nums.size()-1;
         while(i<j)
-        {
-            swap(nums[i++],nums[j--]);
+       swap(nums[i++],nums[j--]);
           
-        }
         
     }
 };
