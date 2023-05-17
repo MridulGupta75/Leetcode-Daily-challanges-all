@@ -1,17 +1,14 @@
 class Solution {
 public:
     double myPow(double x, int k) {
-        if(x==1)return 1;
-        if(x==0)return 0;
-        if(k==0)return 1;
-        if(k==1)return x;
+        
        double res=1;
         bool flag=false;
-        long long int n=k;
+        long long n=k;
         if(n<0)
         {
             flag=true;
-            n*=-1;
+            n=-n;
         }
         while(n>0)
         {
