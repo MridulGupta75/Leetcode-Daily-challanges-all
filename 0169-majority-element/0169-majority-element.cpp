@@ -15,7 +15,7 @@ public:
             else ct--;
         }
         int ct1=0;
-        for(auto x:nums)
+        for(auto&x:nums)
         {
             if(x==el)ct1++;
         }
