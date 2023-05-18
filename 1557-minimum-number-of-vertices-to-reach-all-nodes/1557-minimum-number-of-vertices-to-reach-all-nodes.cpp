@@ -4,9 +4,7 @@ public:
         vector<bool>indeg(n,false);
         vector<int>sol;
         for(auto&x:edges)
-        {
-            indeg[x[1]]=true;
-        }
+        indeg[x[1]]=true;
         for(int x=0;x<indeg.size();x++)
             if(indeg[x]==false)sol.push_back(x);
         return sol;
