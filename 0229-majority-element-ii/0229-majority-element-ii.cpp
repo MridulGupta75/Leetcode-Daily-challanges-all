@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
         vector<int>sol;
-        map<int,int>mpp;
+        unordered_map<int,int>mpp;
         for(auto &x:nums)
         {
             auto itr=mpp.find(x);
