@@ -3,7 +3,7 @@ public:
     vector<int> majorityElement(vector<int>& nums) {
         vector<int>sol;
         map<int,int>mpp;
-        for(auto x:nums)
+        for(auto &x:nums)
         {
             auto itr=mpp.find(x);
             if(itr!=mpp.end())
@@ -15,7 +15,7 @@ public:
             }
         }
         int n=(nums.size())/3;
-        for(auto x:mpp)
+        for(auto &x:mpp)
         {
             if(x.second>n)sol.push_back(x.first);
         }
