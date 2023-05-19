@@ -17,8 +17,7 @@ public:
         ans*=10;
         if((x-'0')%2)
         {
-            
-          ans+=(odd.top());
+           ans+=(odd.top());
             odd.pop();
         }
         else
