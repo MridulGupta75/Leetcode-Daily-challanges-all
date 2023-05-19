@@ -4,9 +4,9 @@ public:
         unordered_map<int,int>mpp;
         for(int i=0;i<nums.size();i++)
         {
-            auto itr=mpp.find(target-nums[i]);
-            if(itr!=mpp.end())
-             return{i,itr->second};
+            
+            if(mpp.find(target-nums[i])!=mpp.end())
+             return{i,mpp[target-nums[i]]};
             else
                 mpp[nums[i]]=i;
         }
