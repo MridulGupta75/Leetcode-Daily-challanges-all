@@ -16,7 +16,7 @@ public:
         ListNode*sol=NULL;
         ListNode*temp=NULL;
         int c=0;
-        while(l1!=NULL||l2!=NULL||c)
+        while(l1||l2||c)
         {
             int sum=c;
            if(l1!=NULL)
