@@ -19,16 +19,12 @@ public:
         while(l1!=NULL||l2!=NULL||c)
         {
             int sum=c;
-           if(l1!=NULL&&l2!=NULL)
-                sum=l1->val+l2->val+c;
-               else if(l2==NULL&&l1!=NULL)
-                 sum=l1->val+c;
-                else if(l2!=NULL&&l1==NULL)
-                    sum=l2->val+c;
-            cout<<sum<<" ";
+           if(l1!=NULL)
+            sum+=l1->val;
+           if(l2!=NULL)
+            sum+=l2->val;
             ListNode*t=new ListNode();
-             if(sol==NULL)
-                 sol=t;
+             if(sol==NULL)sol=t;
             if(sum>9)
             {
                 t->val=sum%10;
@@ -54,15 +50,6 @@ public:
             l2=l2->next;
         }
         
-
-//         if(c!=0)
-//         {
-//             ListNode*t=new ListNode();
-//             t->val=c;
-//             temp->next=t;
-//             temp=t;
-            
-//         }
         return sol;
         
     }
