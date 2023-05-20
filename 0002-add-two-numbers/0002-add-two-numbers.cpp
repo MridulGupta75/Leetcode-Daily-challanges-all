@@ -16,14 +16,14 @@ public:
         ListNode*sol=NULL;
         ListNode*temp=NULL;
         int c=0;
-        while(l1!=NULL||l2!=NULL)
+        while(l1!=NULL||l2!=NULL||c)
         {
-            int sum;
+            int sum=c;
            if(l1!=NULL&&l2!=NULL)
                 sum=l1->val+l2->val+c;
                else if(l2==NULL&&l1!=NULL)
                  sum=l1->val+c;
-                else
+                else if(l2!=NULL&&l1==NULL)
                     sum=l2->val+c;
             cout<<sum<<" ";
             ListNode*t=new ListNode();
@@ -55,14 +55,14 @@ public:
         }
         
 
-        if(c!=0)
-        {
-            ListNode*t=new ListNode();
-            t->val=c;
-            temp->next=t;
-            temp=t;
+//         if(c!=0)
+//         {
+//             ListNode*t=new ListNode();
+//             t->val=c;
+//             temp->next=t;
+//             temp=t;
             
-        }
+//         }
         return sol;
         
     }
