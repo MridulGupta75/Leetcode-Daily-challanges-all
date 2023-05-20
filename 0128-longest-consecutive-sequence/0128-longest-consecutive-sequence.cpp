@@ -15,9 +15,7 @@ public:
             if(el+1==pq.top())c++;
             else if(pq.top()==el)c=c;
             else
-            {
-                c=1;
-            }
+             c=1;
              el=pq.top();
             pq.pop();
             
