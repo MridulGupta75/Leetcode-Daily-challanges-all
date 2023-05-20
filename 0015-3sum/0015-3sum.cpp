@@ -15,8 +15,8 @@ public:
             if(nums[i]+nums[l]+nums[h]==0)
             {
                 sol.push_back({nums[i],nums[l],nums[h]}); 
-                while(l<h&&nums[l]==nums[l+1])l++;
-                 while(l<h&&nums[h]==nums[h-1])h--;
+                while(l<h&&nums[l+1]==nums[l])l++;
+                 while(l<h&&nums[h-1]==nums[h])h--;
                 l++,h--;
             }
             else if(nums[l]+nums[h]<-1*nums[i]) l++;
