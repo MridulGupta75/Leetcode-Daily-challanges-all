@@ -22,10 +22,7 @@ public:
             }
         }
         vector<vector<int>>sol;
-        for(auto&x:s)
-        {
-          sol.push_back(x);
-        }
+        for(auto&x:s) sol.push_back(x);
             return sol;
         
     }
