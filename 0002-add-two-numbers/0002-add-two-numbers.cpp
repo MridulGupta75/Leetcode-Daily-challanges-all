@@ -54,64 +54,7 @@ public:
             l2=l2->next;
         }
         
-//         while(l1!=NULL)
-//         {
-//             int sum=l1->val+c;
-           
-//             ListNode*t=new ListNode();
-//              if(sol==NULL)
-//                  sol=t;
-//             if(sum>9)
-//             {
-//                 t->val=sum%10;
-//                 c=sum/10;
-//             }
-//             else
-//             {
-//                 t->val=sum;
-//              c=0;
-//             }
-//              if(sol==t)
-//                 {
-//                     temp=t;
-//                 }
-//                 else
-//                 {
-//                     temp->next=t;
-//                     temp=t;
-//                 }
-//             l1=l1->next;
-//         }
-//          while(l2!=NULL)
-//         {
-//             int sum=l2->val+c;
-           
-//             ListNode*t=new ListNode();
-//              if(sol==NULL)
-//                  sol=t;
-//             if(sum>9)
-//             {
-                
-//                 t->val=sum%10;
-             
-//                 c=sum/10;
-//             }
-//             else
-//             {
-//                 t->val=sum;
-//                c=0;
-//             }
-//              if(sol==t)
-//                 {
-//                     temp=t;
-//                 }
-//                 else
-//                 {
-//                     temp->next=t;
-//                     temp=t;
-//                 }
-//             l2=l2->next;
-//         }
+
         if(c!=0)
         {
             ListNode*t=new ListNode();
