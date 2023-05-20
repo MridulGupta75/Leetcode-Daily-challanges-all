@@ -19,10 +19,8 @@ public:
         while(l1||l2||c)
         {
             int sum=c;
-           if(l1!=NULL)
-            sum+=l1->val;
-           if(l2!=NULL)
-            sum+=l2->val;
+           if(l1)sum+=l1->val;
+           if(l2)sum+=l2->val;
             ListNode*t=new ListNode();
              if(sol==NULL)sol=t;
             if(sum>9)
@@ -44,10 +42,8 @@ public:
                     temp->next=t;
                     temp=t;
                 }
-            if(l1!=NULL)
-            l1=l1->next;
-            if(l2!=NULL)
-            l2=l2->next;
+            if(l1)l1=l1->next;
+            if(l2)l2=l2->next;
         }
         
         return sol;
