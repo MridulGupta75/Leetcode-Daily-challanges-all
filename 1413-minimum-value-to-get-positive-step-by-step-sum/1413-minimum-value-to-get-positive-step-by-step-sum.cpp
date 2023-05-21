@@ -1,13 +1,13 @@
 class Solution {
 public:
     int minStartValue(vector<int>& nums) {
-        bool flag=false;
+        // bool flag=false;
         // if(nums[0]<0)flag=true;
         for(int i=1;i<nums.size();i++)
         {
            
             nums[i]=nums[i]+nums[i-1];
-             if(nums[i]<0)flag=true;
+             // if(nums[i]<0)flag=true;
             
         }
         int min=INT_MAX;
