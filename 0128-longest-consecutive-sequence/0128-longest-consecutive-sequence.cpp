@@ -2,26 +2,31 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         if(nums.size()==0)return 0;
-        priority_queue<int,vector<int>,greater<int>>pq;
+        unordered_set<int>s;
         for(auto&x:nums)
-            pq.push(x);
-        int c=1;
-        int m=1;
-        int el=pq.top();
-        pq.pop();
-        while(!pq.empty())
-        { 
-            
-            if(el+1==pq.top())c++;
-            else if(pq.top()==el)c=c;
-            else
-             c=1;
-             el=pq.top();
-            pq.pop();
-            
-           
-
-            m=max(m,c);
+        s.insert(x);
+          int c=1;
+          int m=1;
+        for(auto&x:s)
+        {
+            auto itr=s.find(x-1);
+            if(itr!=s.end())
+            {
+                continue;
+            }
+            else{
+                int i=1;
+                auto itr=s.find(x+i);
+                while(itr!=s.end())
+                {
+                    c++;
+                    i++;
+                    itr=s.find(x+i);
+                    
+                }
+                m=max(m,c);
+                c=1;
+            }
         }
         return m;
         
