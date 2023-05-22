@@ -16,7 +16,11 @@ public:
             {
                 if(i==count)sum+=arr[count];
                 else
-                sum+=arr[i]-arr[i-count-1];
+                {
+                    int x=i-count-1;
+                    int s=arr[i]-arr[x];
+                    sum+=s;
+                }
             }
             count+=2;
         }
