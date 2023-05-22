@@ -1,4 +1,3 @@
-
 class Solution {
 public:
     string reverseWords(string s) {
@@ -11,21 +10,27 @@ public:
                 st.push(str);
                 str="";
             }
-            else str+=s[i];
+            else
+            {
+                str+=s[i];
+            }
+            
         }
+      
         st.push(str);
-        string so="";
+        string sol="";
         while(!st.empty())
         {
             if(st.top()!="")
             {
-                if(so=="")
-                    so=st.top();
-                else
-                so=so+' '+st.top();
+            if(sol=="")
+            sol+=st.top();
+            else
+                sol=sol+' '+st.top();
             }
-           st.pop();
+            
+            st.pop();
         }
-        return so;
-   }
+        return sol;
+    }
 };
