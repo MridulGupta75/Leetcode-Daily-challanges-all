@@ -15,7 +15,7 @@ public:
             sol.push_back(i);
             for(int j=0;j<i;j++)
             {
-                if((nums[i]%nums[j]==0)||(nums[j]%nums[i]==0))
+                if(nums[i]%nums[j]==0)
                 {
                     if(dp[i]<(dp[j]+1))
                     {
