@@ -1,22 +1,25 @@
 class Solution {
 public:
+    
+    int func(int ind,int pre,vector<int>& nums,vector<vector<int>>&dp)
+    {
+        //base case
+        if(ind==nums.size())return 0;
+        //condition sol
+        //take
+        int l=INT_MIN;
+        if(dp[ind][pre+1]!=-1)return dp[ind][pre+1];
+        if(pre==-1||nums[ind]>nums[pre])
+          l= 1+func(ind+1,ind,nums,dp);
+        //not take
+            dp[ind][pre+1]=max(l,0+func(ind+1,pre,nums,dp));
+                return l=dp[ind][pre+1];
+
+    }
+    
     int lengthOfLIS(vector<int>& nums) {
-        vector<int>dp;
-        int l=1;
-        dp.push_back(nums[0]);
-        for(int i=1;i<nums.size();i++)
-        {
-            if(nums[i]>dp.back())
-            {
-                dp.push_back(nums[i]);
-                l++;
-            }
-            else
-            {
-                int index=lower_bound(dp.begin(),dp.end(),nums[i])-dp.begin();
-                dp[index]=nums[i];
-            }
-        }
-        return l;
+        
+        vector<vector<int>>dp(nums.size(),vector<int>(nums.size()+1,-1));
+        return func(0,-1,nums,dp);
     }
 };
