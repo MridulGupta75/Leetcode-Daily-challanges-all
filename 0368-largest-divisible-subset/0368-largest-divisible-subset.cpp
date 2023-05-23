@@ -10,7 +10,6 @@ public:
         int maxi=1;
         int pos=0;
         sort(nums.begin(),nums.end());
-        
         for(int i=1;i<nums.size();i++)
         {
             sol.push_back(i);
