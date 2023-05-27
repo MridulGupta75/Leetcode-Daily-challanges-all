@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void func(vector<int>& nums,vector<vector<int>>&sol,vector<int>& subsol,vector<bool>&mpp,int ind)
+    void func(vector<int>& nums,vector<vector<int>>&sol,vector<int>& subsol,int ind)
     {
         
         if(ind==nums.size())
@@ -17,7 +17,7 @@ public:
                 swap(nums[i],nums[ind]);
                 // subsol.push_back(nums[i]);
                 // mpp[i]=true;
-                func(nums,sol,subsol,mpp,ind+1);
+                func(nums,sol,subsol,ind+1);
                   swap(nums[i],nums[ind]);
                 // mpp[i]=false;
                 // subsol.pop_back();
@@ -30,11 +30,11 @@ public:
         
         
         sort(nums.begin(),nums.end());
-        vector<bool>mpp(nums.size(),false);
+        
         vector<int>subsol;
         vector<vector<int>>sol;
         
-        func(nums,sol,subsol,mpp,0);
+        func(nums,sol,subsol,0);
         return sol;
         
     }
