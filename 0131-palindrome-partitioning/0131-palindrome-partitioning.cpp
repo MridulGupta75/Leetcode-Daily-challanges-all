@@ -1,44 +1,46 @@
 class Solution {
 public:
-// recursive func
-    void func(int index, vector<vector<string>> &sol,vector<string> &subsol,int n,string&s)
+    //recursive func
+    void func( vector<vector<string>>&sol,vector<string>&subsol,string&s,int n,int index)
     {
-        //base case
-        
+         //base case
         if(index==n)
         {
             sol.push_back(subsol);
             return;
         }
         
+        //conditions
         for(int i=index;i<n;i++)
         {
             if(isPalin(s,index,i))
             {
                 subsol.push_back(s.substr(index,i-index+1));
-                func(i+1,sol,subsol,n,s);
+                func(sol,subsol,s,n,i+1);
+                //backtrack
                 subsol.pop_back();
             }
         }
         
         
-        
-    }
-    //to chek if its palindrome or not
-    bool isPalin(string s,int st,int e)
+        // take 
+        // not take
+     }
+    
+    
+    bool isPalin(string s,int st,int ed)
     {
-        while(st<=e)
-        if(s[st++]!=s[e--])return false;
-            return true;
+        while(st<=ed)
+            if(s[st++]!=s[ed--])return false;
+                return true;
     }
     
+    //main function
     vector<vector<string>> partition(string s) {
-        
-        vector<vector<string>> sol;
-        vector<string> subsol;
-        func(0,sol,subsol,s.length(),s);
-            return sol;
-        
+        vector<vector<string>>sol;
+        vector<string>subsol;
+        func(sol,subsol,s,s.length(),0);
+        return sol;
         
     }
 };
