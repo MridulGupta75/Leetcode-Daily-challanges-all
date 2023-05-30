@@ -1,24 +1,13 @@
 class Solution {
 public:
-    
-    int func(int i,int j,int m,int n, vector<vector<int>>&dp)
-    {
-        //base
-        if(i>=m||j>=n)return 0;
-        
-        if(i==(m-1)&&j==(n-1))return 1;
-        
-        //take
-        if(dp[i][j]!=-1)return dp[i][j];
-        //not take
-        return(dp[i][j]=func(i+1,j,m,n,dp)+func(i,j+1,m,n,dp));
-        
-        
-    }
-    
     int uniquePaths(int m, int n) {
-        vector<vector<int>>dp(m,vector<int>(n,-1));
-        return func(0,0,m,n,dp);
-        
+        int N=m+n-1;
+        int R=min(m-1,n-1);
+        long long sum=1;
+        for(int i=1;i<=R;i++)
+        {
+            sum=sum*(N-i)/i;
+        }
+        return sum;
     }
 };
