@@ -29,14 +29,12 @@ public:
         
         
        ListNode*temp=head; 
-        cout<<m;
+        
         
       while(m--)
-      {
-           temp=temp->next;
+      temp=temp->next;
           
-      }
-        cout<<temp->val;
+      
        head=temp->next;
         temp->next=NULL;
        
