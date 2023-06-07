@@ -7,7 +7,7 @@ public:
             int x=a&1,y=b&1,z=c&1;
             if((x|y)!=z)
             {
-                if(x&y==1)ans+=2;
+                if(x==1&&y==1)ans+=2;
                 else ans++;
             }
             a=a>>1;
