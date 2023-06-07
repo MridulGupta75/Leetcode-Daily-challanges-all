@@ -6,10 +6,8 @@ public:
         {
             int x=a&1,y=b&1,z=c&1;
             if((x|y)!=z)
-            {
-                if(x==1&&y==1)ans+=2;
-                else ans++;
-            }
+            if(x&y)ans+=2;
+            else ans++;
             a=a>>1;
             b=b>>1;
             c=c>>1;
