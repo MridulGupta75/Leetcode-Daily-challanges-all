@@ -19,12 +19,12 @@ public:
         if(pos1==-1)
         {
             map<int,int>mpp;
-             for(int i=0;i<s.length();i++)
+             for(auto&i:s)
              {
-                 if(mpp.find(s[i])!=mpp.end())
+                 if(mpp.find(i)!=mpp.end())
                      return true;
                  else
-                     mpp.insert({s[i],1});
+                     mpp.insert({i,1});
              }
             return false;
         }
