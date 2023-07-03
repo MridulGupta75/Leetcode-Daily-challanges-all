@@ -28,10 +28,8 @@ public:
              }
             return false;
         }
-        else
-        {
-            if(s[pos1]==goal[pos2]&&s[pos2]==goal[pos1]) return true;
-        }
+         else 
+             if(s[pos1]==goal[pos2]&&s[pos2]==goal[pos1]) return true;
         return false;
         
     }
