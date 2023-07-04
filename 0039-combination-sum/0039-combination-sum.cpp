@@ -1,29 +1,24 @@
 class Solution {
 public:
-    
-    
-    void func(int index,vector<int>&subsol,vector<vector<int>>&sol,vector<int>&nums,int target)
+    void makeSum(vector<int>& nums, int target,vector<int>&subsol,vector<vector<int>>&sol,int i)
     {
-        //base
         if(target==0)
         {
             sol.push_back(subsol);
             return;
         }
-        if(target<0||index==nums.size())return;
-        //conditions
-        //take
-        subsol.push_back(nums[index]);
-        func(index,subsol,sol,nums,target-nums[index]);
-        //nottake
+        if(target<0||i==nums.size())return;
+        subsol.push_back(nums[i]);
+        makeSum(nums,target-nums[i],subsol,sol,i);
         subsol.pop_back();
-        func(index+1,subsol,sol,nums,target);
+        makeSum(nums,target,subsol,sol,i+1);
     }
-    
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        
         vector<int>subsol;
+        // sort(candidates.begin(),candidates.end());
         vector<vector<int>>sol;
-        func(0,subsol,sol,candidates,target);
+        makeSum(candidates,target,subsol,sol,0);
         return sol;
     }
 };
