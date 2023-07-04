@@ -1,39 +1,24 @@
 class Solution {
 public:
-    void func( set<vector<int>>&sol,vector<int>&subsol,vector<int>&nums,int ind)
+    void findSub(vector<int>&nums,vector<int>&subsol,vector<vector<int>>&sol,int index)
     {
-        if(ind==nums.size())
+        sol.push_back(subsol);
+        
+        for(int i=index;i<nums.size();i++)
         {
-            sol.insert(subsol);
-            return;
+            if(i!=index&&(nums[i]==nums[i-1]))continue;
+            subsol.push_back(nums[i]);
+            findSub(nums,subsol,sol,i+1);
+            subsol.pop_back();
+            
         }
-        
-        //conditions
-        //take
-        subsol.push_back(nums[ind]);
-        func(sol,subsol,nums,ind+1);
-        subsol.pop_back();
-        func(sol,subsol,nums,ind+1);
-        
-        //not take
-        
-        
-        
-        
     }
-    
-    
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        
-        set<vector<int>>sol;
-        vector<int>subsol;
         sort(nums.begin(),nums.end());
-        func(sol,subsol,nums,0);
-        vector<vector<int>>realsol;
-        for(auto&x:sol)
-            realsol.push_back(x);
-        
-        return realsol;
+        vector<int>subsol;
+        vector<vector<int>>sol;
+        findSub(nums,subsol,sol,0);
+        return sol;
         
     }
 };
