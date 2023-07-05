@@ -12,25 +12,14 @@ public:
                 for(int j=0;j<nums.size();j++)
                 {
                     if(j==i)continue;
-                    if(nums[j]==1)
-                    {
-                        c++;
-                    }
-                    else
-                    {
-                       
-                        m=max(c,m);
-                        c=0;
-                    }
+                    if(nums[j]==1)c++;
+                    else m=max(c,m),c=0;
                     
                 }
                 m=max(c,m);
             }
         }
-        if(flag)
-        {
-            return nums.size()-1;
-        }
+        if(flag) return nums.size()-1;
         return m;
     }
 };
