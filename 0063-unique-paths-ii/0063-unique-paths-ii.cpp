@@ -35,10 +35,7 @@ public:
                   
                 }
                 if(i==0&&j==0)
-                {
-                    dp[i][j]=1;
-                    continue;
-                }
+                dp[i][j]=1;
                
             }
         }
