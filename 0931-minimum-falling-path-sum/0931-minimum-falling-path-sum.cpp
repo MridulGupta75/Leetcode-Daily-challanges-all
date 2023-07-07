@@ -2,7 +2,7 @@ class Solution {
 public:
     int func(int i,int j,int n,vector<vector<int>>& grid,vector<vector<int>>&dp)
     {
-        if(i>=n||j<0||j>=n)return 10e7;
+        if(i>=n||j<0||j>=n)return 10000;
         if(i==n-1)return grid[i][j];
         if(dp[i][j]!=INT_MIN)return dp[i][j];
         int left=func(i+1,j-1,n,grid,dp)+grid[i][j];
