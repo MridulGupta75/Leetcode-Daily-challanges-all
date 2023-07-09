@@ -2,7 +2,7 @@ class Solution {
 public:
     int func(int ind,int tar,vector<int>& nums,vector<vector<int>>&dp)
     {
-        if(tar==0)return 0;
+        // if(tar==0)return 0;
         if(ind==0)
         {
             if(tar%nums[ind]==0)
