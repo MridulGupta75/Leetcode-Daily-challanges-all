@@ -25,10 +25,7 @@ public:
         for(int j=1;j<=m;j++)
         {
             bool flag =true;
-            for(int ii=j;ii>=1;ii--)
-           {
-               if(t[ii-1]!='*')flag=false;
-           }
+            for(int ii=j;ii>=1;ii--)  if(t[ii-1]!='*')flag=false;
             if(flag)
             dp[0][j]=true;
         }
