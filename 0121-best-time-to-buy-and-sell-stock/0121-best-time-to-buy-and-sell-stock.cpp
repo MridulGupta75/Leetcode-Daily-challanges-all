@@ -1,15 +1,12 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int pro=0;
-        int minprice=prices[0];
-        //minnimum nikaloo pitcha ka
-        for(int i=0;i<prices.size();i++)
+        int p=0,pos=prices[0];
+        for(int i=1;i<prices.size();i++)
         {
-           minprice=min(minprice,prices[i]);
-            pro=max(prices[i]-minprice,pro);
+            p=max(prices[i]-pos,p);
+             pos=min(pos,prices[i]);
         }
-        return pro;
-        
+        return p;
     }
 };
