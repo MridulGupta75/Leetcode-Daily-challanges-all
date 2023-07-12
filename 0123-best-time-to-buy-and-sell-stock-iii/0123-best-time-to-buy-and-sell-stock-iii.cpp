@@ -17,8 +17,22 @@ public:
     }
     int maxProfit(vector<int>& prices) {
         int n=prices.size();
-        vector<vector<int>>dp(n,vector(4,-1));
-        return func(0,0,prices,n,dp);
+        // vector<vector<int>>dp(n,vector(4,-1));
+        // return func(0,0,prices,n,dp);
+         vector<vector<int>>dp(n+1,vector(5,0));
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int b=0;b<4;b++)
+            {
+             if(b==0||b==2)
+            dp[i][b]=max(-prices[i]+dp[i+1][b+1],dp[i+1][b]);
+                else
+            dp[i][b]=max(prices[i]+dp[i+1][b+1],dp[i+1][b]);
+            }
+        
+        }
+        return dp[0][0];
+        
     }
 };
 //0->buy
