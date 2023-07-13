@@ -17,10 +17,7 @@ public:
         // int alice=func(0,n-1,piles,dp);
         // int bob=ans-alice;
         for(int i=0;i<n;i++)
-        {
-             
-                dp[i][i]=piles[i];
-        }
+        dp[i][i]=piles[i];
            
         
         for(int i=n-1;i>=2;i--)
@@ -33,7 +30,7 @@ public:
                dp[i][j]=max(c1,c2);
             }
         }
-       int alice=dp[0][0];
+       int alice=piles[0];
         int bob=ans-alice;
         return alice<=bob;
     }
