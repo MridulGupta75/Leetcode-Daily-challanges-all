@@ -4,10 +4,10 @@ public:
     {
         if(i>j)return 0;
         if(i==j)return nums[i];
-        // if(dp[i][j]!=-1)return -1;
+        if(dp[i][j]!=-1)return dp[i][j];
        int c1=nums[i]+min(func(i+2,j,nums,dp),func(i+1,j-1,nums,dp));
        int c2=nums[j]+min(func(i,j-2,nums,dp),func(i+1,j-1,nums,dp));
-        return max(c1,c2);
+        return dp[i][j]=max(c1,c2);
         
         
     }
