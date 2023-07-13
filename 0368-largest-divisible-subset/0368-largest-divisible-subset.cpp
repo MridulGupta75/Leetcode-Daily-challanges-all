@@ -1,50 +1,44 @@
 class Solution {
 public:
-    
-
     vector<int> largestDivisibleSubset(vector<int>& nums) {
-       
-        vector<int>dp(nums.size(),1);
-        vector<int>sol{0};
-        vector<int>temp;
-        int maxi=1;
-        int pos=0;
+        int n=nums.size();
+        vector<int>temp(n,1);
+        vector<int>hash(n,0);
         sort(nums.begin(),nums.end());
-        for(int i=1;i<nums.size();i++)
+        for(int i=1;i<n;i++)
         {
-            sol.push_back(i);
+            hash[i]=i;
             for(int j=0;j<i;j++)
             {
                 if(nums[i]%nums[j]==0)
                 {
-                    if(dp[i]<(dp[j]+1))
-                    {
-                        dp[i]=dp[j]+1;
-                        sol[i]=j;
-                    }
+                    int k=temp[i];
+                    temp[i]=max(temp[i],1+temp[j]);
+                    if(temp[i]!=k)
+                     hash[i]=j;
                 }
             }
-            if(dp[i]>maxi)
+            
+        }
+        int pos=0,max=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            if(temp[i]>max)
             {
-                maxi=dp[i];
+                max=temp[i];
                 pos=i;
             }
-            
         }
         
-        
-        temp.push_back(nums[pos]);
-        while(sol[pos]!=pos)
+        // cout<<max<<pos;
+        vector<int>res;
+        res.push_back(nums[pos]);
+        while(hash[pos]!=pos)
         {
-            pos=sol[pos];
-             temp.push_back(nums[pos]);
+            pos=hash[pos];
+            res.push_back(nums[pos]);
+           
         }
-        reverse(temp.begin(),temp.end());
-        return temp;
-            
-            
-            
-       
-        
+        return res;
     }
 };
