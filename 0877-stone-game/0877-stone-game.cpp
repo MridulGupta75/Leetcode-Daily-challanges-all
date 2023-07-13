@@ -4,10 +4,7 @@ public:
     bool stoneGame(vector<int>& piles) {
         int ans=0;
         for(auto&x:piles)ans+=x;
-
-       int alice=piles[0];
-        int bob=ans-alice;
-        return alice<=bob;
+        return piles[0]<=ans-piles[0];
     }
 };
          // int n=piles.size();
