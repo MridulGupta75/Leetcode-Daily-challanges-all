@@ -11,8 +11,8 @@ public:
     }
     int longestSubsequence(vector<int>& arr, int difference) {
         int n=arr.size();
-        vector<int>dp(n,1);
-        map<int,int>mpp;
+       
+        unordered_map<int,int>mpp;
         mpp.insert({arr[0],1});
         int ans=1;
         for(int i=1;i<n;i++)
@@ -22,6 +22,7 @@ public:
             if(itr!=mpp.end()) mpp[arr[i]]=(itr->second)+1;
                 else
                 mpp[arr[i]]=1;
+            
             if(ans<mpp[arr[i]])ans=mpp[arr[i]];
         }
        
