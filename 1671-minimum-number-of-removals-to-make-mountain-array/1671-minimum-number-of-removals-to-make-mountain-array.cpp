@@ -28,7 +28,8 @@ int longestBitonicSequence(vector<int>& arr, int n) {
 	   // if((dp[i]+dp1[i]-1)>ans)
 	   // ans=dp[i]+dp1[i]-1;
          if(dp[i] > 1 && dp1[i] > 1)
-                ans = max(ans, dp[i] + dp1[i] -1);
+                if((dp[i]+dp1[i]-1)>ans)
+	   ans=dp[i]+dp1[i]-1;
 	}
 	  return n-ans;	   
 } 
