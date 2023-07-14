@@ -23,7 +23,7 @@ int longestBitonicSequence(vector<int>& arr, int n) {
 	// for(auto&x:dp1)cout<<x<<" ";
 	// cout<<endl;
 	int ans=1;
-	for(int i=1;i<n-1;i++)
+	for(int i=0;i<n;i++)
 	{
 	   // if((dp[i]+dp1[i]-1)>ans)
 	   // ans=dp[i]+dp1[i]-1;
