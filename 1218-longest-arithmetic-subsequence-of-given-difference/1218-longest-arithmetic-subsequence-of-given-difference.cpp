@@ -17,19 +17,15 @@ public:
         int ans=1;
         for(int i=1;i<n;i++)
         {
-            // for(int j=0;j<i;j++)
-            // {
+           
             auto itr=mpp.find(arr[i]-difference);
-            if(itr!=mpp.end()&&dp[i]<(itr->second)+1)
-                dp[i]=(itr->second)+1;
+            if(itr!=mpp.end()&&dp[i]<(itr->second)+1) dp[i]=(itr->second)+1;
             auto itr2=mpp.find(arr[i]);
             if(itr2!=mpp.end())
                 mpp[arr[i]]=max(dp[i],(itr2->second));
             else
             mpp.insert({arr[i],dp[i]});
-                // if((arr[i]-arr[j]==difference)&&dp[i]<dp[j]+1)
-                //     dp[i]=dp[j]+1;
-            // }
+             
             if(ans<dp[i])ans=dp[i];
         }
        
