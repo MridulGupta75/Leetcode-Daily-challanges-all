@@ -20,7 +20,6 @@ public:
            
             auto itr=mpp.find(arr[i]-difference);
             if(itr!=mpp.end()&&dp[i]<(itr->second)+1) dp[i]=(itr->second)+1;
-            auto itr2=mpp.find(arr[i]);
            
                 mpp[arr[i]]=dp[i];
             
