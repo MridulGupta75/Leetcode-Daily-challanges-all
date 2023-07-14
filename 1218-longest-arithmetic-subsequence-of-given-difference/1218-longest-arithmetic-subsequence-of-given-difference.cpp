@@ -19,12 +19,10 @@ public:
         {
            
             auto itr=mpp.find(arr[i]-difference);
-            if(itr!=mpp.end()&&dp[i]<(itr->second)+1) dp[i]=(itr->second)+1;
-           
-                mpp[arr[i]]=dp[i];
-            
-             
-            if(ans<dp[i])ans=dp[i];
+            if(itr!=mpp.end()) mpp[arr[i]]=(itr->second)+1;
+                else
+                mpp[arr[i]]=1;
+            if(ans<mpp[arr[i]])ans=mpp[arr[i]];
         }
        
         return ans;
