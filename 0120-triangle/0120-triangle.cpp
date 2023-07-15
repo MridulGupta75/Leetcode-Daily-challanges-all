@@ -17,19 +17,21 @@ public:
         int n=triangle.size();
         // vector<vector<int>>dp(n,vector(n,-1));
         // return func(0,0,triangle,n,dp);
-        vector<vector<int>>dp(n+1,vector(n+1,0));
-        for(int j=0;j<n;j++)dp[n-1][j]=triangle[n-1][j];
+        // vector<vector<int>>dp(n+1,vector(n+1,0));
+        vector<int>pre(n,0),curr(n,0);
+        for(int j=0;j<n;j++)pre[j]=triangle[n-1][j];
         
         for(int i=n-2;i>=0;i--)
         {
             for(int j=i;j>=0;j--)
             {
-                 int l=triangle[i][j]+dp[i+1][j];
-                 int u=triangle[i][j]+dp[i+1][j+1];
-                dp[i][j]=min(l,u);
+                 int l=triangle[i][j]+pre[j];
+                 int u=triangle[i][j]+pre[j+1];
+                curr[j]=min(l,u);
             }
+            pre=curr;
         }
-        return dp[0][0];
+        return pre[0];
         // return 1;
         
         
