@@ -22,7 +22,7 @@ public:
         return x[0]<y[0];
     }
     int maxValue(vector<vector<int>>& events, int k) {
-        sort(events.begin(),events.end());
+        sort(events.begin(),events.end(),comp);
          vector<vector<int>>dp(events.size()+1,vector(k+1,-1));
         return func(0,k,events,dp);
         
