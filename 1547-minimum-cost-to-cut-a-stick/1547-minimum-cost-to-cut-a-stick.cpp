@@ -13,10 +13,11 @@ public:
         return dp[i][j]=mini;
     }
     int minCost(int n, vector<int>& cuts) {
+        int sz=cuts.size();
          sort(cuts.begin(),cuts.end());
         cuts.push_back(n);
         cuts.insert(cuts.begin(),0);
-        vector<vector<int>>dp(109,vector(109,-1));
+        vector<vector<int>>dp(sz+2,vector(sz+2,-1));
         return func(1,cuts.size()-2,cuts,dp);
         
     }
