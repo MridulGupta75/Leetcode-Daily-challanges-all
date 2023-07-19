@@ -12,22 +12,12 @@ public:
         while(i<n)
         {
           if(nums[l][1]<=nums[i][0])
-          {
-              l=i;
-              i++;
-          }
+          l=i;
             else if(nums[l][1]>nums[i][1])
-            {
-                 c++;
-                l=i;
-                i++;
-               
-            }
+            c++,l=i;
             else if(nums[l][1]<=nums[i][1])
-            {
-                c++;
-                i++;
-            }
+            c++;
+            i++;
             
         }
         return c;
