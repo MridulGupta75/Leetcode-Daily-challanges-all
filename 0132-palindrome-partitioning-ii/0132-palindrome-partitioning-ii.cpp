@@ -9,10 +9,10 @@ public:
         }
         return true;
     }
-    int func(int i,int n,string&s, vector<vector<int>>&dp)
+    int func(int i,int n,string&s, vector<int>&dp)
     {
         if(i==n)return 0;
-        if(dp[i][n]!=-1)return dp[i][n];
+        if(dp[i]!=-1)return dp[i];
         int mini=INT_MAX;
         for(int k=i;k<n;k++)
         {
@@ -23,11 +23,11 @@ public:
                 mini=min(cost,mini);
             }
         }
-        return dp[i][n]=mini;
+        return dp[i]=mini;
     }
     int minCut(string s) {
         int n=s.length();
-        vector<vector<int>>dp(n+1,vector(n+1,-1));
+      vector<int>dp(n,-1);
         return func(0,n,s,dp)-1;
     }
 };
