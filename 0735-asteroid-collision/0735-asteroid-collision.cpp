@@ -21,7 +21,7 @@ public:
                     st.pop();
                    if(st.empty())
                    {
-                    st.push(ast[i]);
+                     st.push(ast[i]);
                     break;
                    }
                     }
