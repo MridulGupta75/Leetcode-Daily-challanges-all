@@ -45,24 +45,23 @@ public:
         
     }
     int maximalRectangle(vector<vector<char>>& matrix) {
-        vector<vector<int>>solmat(matrix.size(),vector(matrix[0].size(),0));
-     for(int i=0;i<matrix.size();i++)
-     {
-         for(int y=0;y<matrix[0].size();y++)
-             if(matrix[i][y]=='1')
-                 solmat[i][y]=1;
-     }
+     //    vector<vector<int>>solmat(matrix.size(),vector(matrix[0].size(),0));
+     // for(int i=0;i<matrix.size();i++)
+     // {
+     //     for(int y=0;y<matrix[0].size();y++)
+     //         if(matrix[i][y]=='1')
+     //             solmat[i][y]=1;
+     // }
         int ma=0;
         vector<int>ht(matrix[0].size(),0);
         for(int i=0;i<matrix.size();i++)
      {
          for(int y=0;y<matrix[0].size();y++)
          {
-             if(solmat[i][y]==1)ht[y]++;
+             if(matrix[i][y]=='1')ht[y]++;
              else ht[y]=0;
          }
-            // for(auto&m:ht)
-            //     cout<<m<<" ";
+          
             int r=largestRectangleArea(ht);
            
             ma=max(r,ma);
