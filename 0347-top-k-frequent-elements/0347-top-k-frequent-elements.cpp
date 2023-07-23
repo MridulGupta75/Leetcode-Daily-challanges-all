@@ -9,8 +9,8 @@ public:
          pq.push({x.second,x.first});
         
         vector<int>sol;
-        for(int i=0;i<k;i++)
-        {
+      while(k--)
+      {
             sol.push_back(pq.top().second);
             pq.pop();
         }
