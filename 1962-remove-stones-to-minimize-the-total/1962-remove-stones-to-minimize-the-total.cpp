@@ -14,7 +14,7 @@ public:
         int sum=0;
         while(!pq.empty())
         {
-            cout<<pq.top()<<" ";
+            // cout<<pq.top()<<" ";
             sum+=pq.top();
             pq.pop();
         }
