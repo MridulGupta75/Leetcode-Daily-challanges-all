@@ -1,20 +1,16 @@
 class Solution {
 public:
-    
-    int func(int n,vector<int>&dp)
-    {
-        if(n==0||n==1)return 1;
-        if(dp[n-1]!=-1)return dp[n-1];
-        int x=0,y=0;
-         x=func(n-1,dp);
-        y=func(n-2,dp);
-        dp[n-1]=x+y;
-        return dp[n-1];
-    }
-    
+   int func(int i, vector<int>&dp)
+   {
+       if(i<0)return 0;
+       if(i==0)return 1;
+       if(dp[i]!=-1)return dp[i];
+       int sol=func(i-1,dp)+func(i-2,dp);
+       return dp[i]=sol;
+       
+   }
     int climbStairs(int n) {
-        vector<int>dp(n,-1);
+        vector<int>dp(n+1,-1);
         return func(n,dp);
-        
     }
 };
