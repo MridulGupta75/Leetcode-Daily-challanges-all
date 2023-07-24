@@ -1,23 +1,30 @@
 class Solution {
 public:
-    double myPow(double x, int n) {
+    double myPow(double x, int k) {
         
-        
-        double res = 1;
-        bool flag = false;
-         long long k = n;
-        if(n < 0)
-            flag = true, k = abs(n);
-        
-        while(k)
+        double sol=1;
+        bool nflag=false;
+        bool xflag=false;
+        if(k<0)nflag=true;
+     
+        long long n=abs(k);
+        if(x<0&&n%2) xflag=true;
+        double y=abs(x);
+    
+        while(n>0)
         {
-            if(k & 1)
-                res *= x;
-            x *= x;
-            k >>= 1;
+            if(n%2)
+            {
+                sol*=y;
+                n=n-1;
+            }
+            else
+            {
+                y=y*y;
+                n=n/2;
+            }
         }
-        if(flag)
-            return 1.0 / res;
-        return res;
+        if(xflag)sol*=-1;
+        return nflag?1.0/sol:sol;
     }
 };
