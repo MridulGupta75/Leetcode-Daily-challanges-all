@@ -3,12 +3,10 @@ public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
     unordered_map<int,int>mpp;
         stack<int>st;
-        int n=nums2.size();
-        st.push(nums2[n-1]);
-        mpp[nums2[n-1]]=-1;
-        for(int i=n-2;i>=0;i--)
+      
+        for(int i=nums2.size()-1;i>=0;i--)
         {
-            if(st.top()>nums2[i])
+            if(!st.empty()&&st.top()>nums2[i])
             mpp[nums2[i]]=st.top();
             else
             {
