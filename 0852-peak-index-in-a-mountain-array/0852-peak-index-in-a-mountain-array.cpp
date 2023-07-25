@@ -5,6 +5,7 @@ public:
       
         while(l<r)
         {
+            if(l==r)return l;
            int mid=(l+r)/2;
            if(arr[mid]<arr[mid+1])l=mid+1;
            else r=mid;
