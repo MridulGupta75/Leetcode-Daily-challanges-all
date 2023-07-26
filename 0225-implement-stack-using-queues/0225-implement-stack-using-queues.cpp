@@ -7,14 +7,13 @@ public:
     }
     
     void push(int x) {
-         queue<int>q2;
-        q2.push(x);
-        while(!q1.empty())
+    
+        q1.push(x);
+        for(int i=1;i<=q1.size()-1;i++)
         {
-            q2.push(q1.front());
+            q1.push(q1.front());
             q1.pop();
         }
-        q1=q2;
     }
     
     int pop() {
