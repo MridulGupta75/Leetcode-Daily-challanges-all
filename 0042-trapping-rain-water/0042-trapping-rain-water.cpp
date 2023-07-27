@@ -15,9 +15,7 @@ public:
         
         int sol=0;
         for(int i=1;i<n-1;i++)
-        {
-            sol+=(min(rtmax[i],ltmax[i])-height[i])*1;
-        }
+        sol+=min(rtmax[i],ltmax[i])-height[i];
             return sol;
         
     }
