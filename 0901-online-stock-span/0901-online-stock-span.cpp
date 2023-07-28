@@ -7,11 +7,7 @@ public:
     
     int next(int price) {
         int val=1;
-        while(!st.empty()&&price>=st.top().first)
-        {
-            val+=st.top().second;
-            st.pop();   
-        }
+        while(!st.empty()&&price>=st.top().first) val+=st.top().second,st.pop();
       st.push({price,val});
         
         return st.top().second;
