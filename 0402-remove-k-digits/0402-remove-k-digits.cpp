@@ -5,27 +5,14 @@ public:
         
         for(int i=0;i<num.size();i++)
         {
-            while(k>0&&(!st.empty()&&num[i]<st.top()))
-            {
-                st.pop();
-                k--;
-            }
+            while(k>0&&(!st.empty()&&num[i]<st.top())) st.pop(),k--;
             st.push(num[i]);
         }
         string sol="";
-        while(!st.empty()&&k>0)
-        {
-            st.pop();
-            k--;
-        }
+        while(!st.empty()&&k>0) st.pop(),k--;
         
-        while(!st.empty())
-        {
-            char y =st.top();
-            st.pop();
-            sol+=y;
-           
-        }
+        while(!st.empty()) sol+=st.top(),st.pop();
+        
         reverse(sol.begin(),sol.end());
         int i=0;
           for(;i<sol.size();i++){
