@@ -1,24 +1,25 @@
 class Solution {
 public:
-    int func(int i,int j,vector<int>& nums, vector<vector<int>>&dp)
+    int func(int i,int l,int n,vector<int>&nums, vector<vector<int>>&dp)
     {
-        if(i>j)return 0;
-        if(i==j)return nums[i];
-        if(dp[i][j]!=-1)return dp[i][j];
-       int c1=nums[i]+min(func(i+2,j,nums,dp),func(i+1,j-1,nums,dp));
-       int c2=nums[j]+min(func(i,j-2,nums,dp),func(i+1,j-1,nums,dp));
-        return dp[i][j]=max(c1,c2);
-        
-        
+        if(i>=n||l<0)return 0;
+        if(i==l)return nums[i];
+        if(dp[i][l]!=-1)return dp[i][l];
+        int k=nums[i]+min(func(i+2,l,n,nums,dp),func(i+1,l-1,n,nums,dp));
+        int r=nums[l]+min(func(i,l-2,n,nums,dp),func(i+1,l-1,n,nums,dp));
+        return dp[i][l]=max(k,r);
     }
     bool PredictTheWinner(vector<int>& nums) {
-        vector<vector<int>>dp(nums.size(),vector(nums.size(),-1));
-        int x= func(0,nums.size()-1,nums,dp);
+        vector<vector<int>>dp(nums.size(),vector<int>(nums.size(),-1));
+        int player1=func(0,nums.size()-1,nums.size(),nums,dp);
+        
+        // cout<<player1;
         int sum=0;
-        for(auto&x:nums)
-            sum+=x;
-       int p2=sum-x;
-        if(x>=p2)return true;
-        return false;
+        for(auto&x:nums)sum+=x;
+        // cout<<" "<<sum;
+        int player2=sum-player1;
+        // cout<<" "<<player2;
+        return player1>=player2;
+        
     }
 };
