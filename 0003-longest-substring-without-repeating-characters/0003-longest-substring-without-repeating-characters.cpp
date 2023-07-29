@@ -6,11 +6,11 @@ public:
         while(j<s.length())
         {
             auto itr=mpp.find(s[j]);
-            if(itr!=mpp.end())
+            if(itr!=mpp.end()&&i<=itr->second)
             {
                 int k=i;
                 i=itr->second+1;
-                for(;k<i;k++) mpp.erase(s[k]);
+                // for(;k<i;k++) mpp.erase(s[k]);
                 mpp[s[j]]=j;
             }
             else
