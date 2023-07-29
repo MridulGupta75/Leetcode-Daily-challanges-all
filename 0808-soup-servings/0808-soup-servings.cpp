@@ -14,7 +14,7 @@ public:
         return dp[a][b]=(0.25*(p1+p2+p3+p4));
     }
     double soupServings(int n) {
-        if(n>=5000)return 1;
+        if(n>=4000)return 1;
         vector<vector<double>>dp(n+1,vector<double>(n+1,-1));
         return(func(n,n,dp));
     }
