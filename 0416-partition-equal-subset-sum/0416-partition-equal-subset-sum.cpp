@@ -6,7 +6,9 @@ public:
         if(total==0)return true;
         if(total<0)return false;
         if(dp[i][total]!=-1)return dp[i][total];
-        bool pick=func(i+1,total-nums[i],nums,dp);
+        bool pick=false;
+        if(nums[i]<=total)
+        pick=func(i+1,total-nums[i],nums,dp);
         bool notpick=func(i+1,total,nums,dp);
         return dp[i][total]=pick|notpick;
     }
