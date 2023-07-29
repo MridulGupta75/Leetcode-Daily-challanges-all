@@ -14,7 +14,7 @@ public:
         int total=0;
         for(auto&x:nums)total+=x;
          if(total%2!=0)return false;
-        vector<vector<int>>dp(nums.size()+1,vector(total+1,-1));
+        vector<vector<int>>dp(nums.size()+1,vector((total/2)+1,-1));
         return func(0,(total/2),nums,dp);
     }
 };
