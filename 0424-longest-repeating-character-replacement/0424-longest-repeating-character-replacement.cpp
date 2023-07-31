@@ -16,7 +16,7 @@ public:
                 while(r-l+1-maxlen>k)
                 {
                     mpp[s[l]]--;
-                    for(auto&x:mpp)maxlen=max(maxlen,x.second);
+                    // for(auto&x:mpp)maxlen=max(maxlen,x.second);
                     l++;
                 }
             }
