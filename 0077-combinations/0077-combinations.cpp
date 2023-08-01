@@ -4,7 +4,7 @@ public:
     void func(int i,int k,vector<int>&subsol,int n)
     {
       
-        if(subsol.size()==k)
+        if(!k)
         { 
             sol.push_back(subsol);
             return ;
@@ -12,7 +12,7 @@ public:
         if(i>n)return ;
         //take
         subsol.push_back(i);
-        func(i+1,k,subsol,n);
+        func(i+1,k-1,subsol,n);
         subsol.pop_back();
         //not take
         func(i+1,k,subsol,n);   
