@@ -2,12 +2,13 @@ class Solution {
 public:
     void func(int i,int k,vector<vector<int>>&sol,vector<int>&subsol,int n)
     {
-        if(i>n+1)return ;
+      
         if(subsol.size()==k)
         {
             sol.push_back(subsol);
             return ;
         }
+        if(i>n)return ;
         //take
         subsol.push_back(i);
         func(i+1,k,sol,subsol,n);
