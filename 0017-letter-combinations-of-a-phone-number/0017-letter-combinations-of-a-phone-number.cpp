@@ -6,7 +6,7 @@ public:
     {
         
         if(substr.size()==digits.size())sol.push_back(substr);
-        if(substr.size()>digits.size())return;    
+        // if(substr.size()>digits.size())return;    
         string temp=mpp[digits[strind]];
         for(int i=ind;i<temp.size();i++)
         {
