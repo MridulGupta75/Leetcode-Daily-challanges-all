@@ -34,9 +34,9 @@ public:
         {
            if(!vis[i])
            {
-              
+                 c++;
                DFS(edges,vis,i);
-                c++;
+             
            }
         }
         return c-1;
