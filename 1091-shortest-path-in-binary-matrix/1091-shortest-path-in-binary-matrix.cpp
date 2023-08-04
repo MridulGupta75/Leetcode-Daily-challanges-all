@@ -1,37 +1,42 @@
 class Solution {
 public:
+    vector<pair<int,int>>pr{{-1,0},{1,0},{0,1},{0,-1},{-1,-1},{1,1},{-1,1},{1,-1}};
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-           if (grid[0][0] || grid.back().back()) return -1;
-        // support variables
-        int res = 2, len = 1, maxX = grid[0].size() - 1, maxY = grid.size() - 1;
-        queue<pair<int, int>> q;
-        // edge case: single cell matrix
-        if (!maxX && !maxY) return 1 - (grid[0][0] << 1);
-        // adding the starting point
-        q.push({0, 0});
-        // marking start as visited
-        grid[0][0] = -1;
-        while (len) {
-            while (len--) {
-                // reading and popping the coordinates on the front of the queue
-                auto [cx, cy] = q.front();
-                q.pop();
-                for (int x = max(0, cx - 1), lmtX = min(cx + 1, maxX); x <= lmtX; x++) {
-                    for (int y = max(0, cy - 1), lmtY = min(cy + 1, maxY); y <= lmtY; y++) {
-                        // check if we reached the target
-                        if (x == maxX && y == maxY) return res;
-                        // marking it as visited and adding it to the q if it was still a valid cell
-                        if (!grid[y][x]) {
-                            grid[y][x] = -1;
-                            q.push({x, y});
-                        }
+        int n=grid.size();
+        if(grid[0][0]==1||grid[n-1][n-1]==1)return -1;
+        vector<vector<int>>disgrid(n,vector<int>(n,INT_MAX));
+        queue<vector<int>>q;
+        q.push({0,0,0});
+        disgrid[0][0]=0;
+        while(!q.empty())
+        {
+            int r=q.front()[0];
+            int c=q.front()[1];
+            int dis=q.front()[2];
+            q.pop();
+            for(auto&x:pr)
+            {
+                int rr=r+x.first;
+                int cc=c+x.second;
+                if(rr>=0&&rr<n&&cc>=0&&cc<n&&grid[rr][cc]==0)
+                {
+                    if(dis+1<disgrid[rr][cc])
+                    {
+                        disgrid[rr][cc]=dis+1;
+                        q.push({rr,cc,dis+1});
                     }
                 }
             }
-            // preparing for the next loop
-            res++;
-            len = q.size();
         }
-        return -1;
+        
+        
+        // for(auto&x:disgrid)
+        // {
+        //     for(auto&y:x)
+        //         cout<<y<<" ";
+        //     cout<<endl;
+        // }
+        return disgrid[n-1][n-1]==INT_MAX?-1:disgrid[n-1][n-1]+1;
+        
     }
 };
