@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<pair<int,int>>pr{{-1,0},{1,0},{0,1},{0,-1},{-1,-1},{1,1},{-1,1},{1,-1}};
+
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         int n=grid.size();
         if(grid[0][0]==1||grid[n-1][n-1]==1)return -1;
@@ -28,14 +29,6 @@ public:
                 }
             }
         }
-        
-        
-        // for(auto&x:disgrid)
-        // {
-        //     for(auto&y:x)
-        //         cout<<y<<" ";
-        //     cout<<endl;
-        // }
         return disgrid[n-1][n-1]==INT_MAX?-1:disgrid[n-1][n-1]+1;
         
     }
