@@ -6,12 +6,7 @@ public:
         int m=grid.size();
         int n=grid[0].size();
         for(int i=0;i<m;i++)
-        {
-            for(int j=0;j<n;j++)
-            {
-                if(grid[i][j]==2)q.push({{i,j},0});
-            }
-        }
+            for(int j=0;j<n;j++)if(grid[i][j]==2)q.push({{i,j},0});
         int cn=0;
     
         while(!q.empty())
@@ -37,8 +32,7 @@ public:
         }
         
         for(auto&x:grid)
-            for(auto&y:x)
-                if(y==1)return -1;
+            for(auto&y:x) if(y==1)return -1;
         return cn;
         
     }
