@@ -17,7 +17,7 @@ public:
         queue<TreeNode*>q;
          vector<vector<int>>sol;
         q.push(root);
-        int c=0;
+        bool c=0;
         while(!q.empty())
         {
           
@@ -37,11 +37,7 @@ public:
             
             }
              if(c==0) c=1;
-            else
-            {
-                // reverse(subsol.begin(),subsol.end());
-                c=0;
-            }
+            else c=0;
              sol.push_back(subsol);
         }
         return sol;
