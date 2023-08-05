@@ -34,17 +34,13 @@ public:
                  
             
             }
-             if(c==0)
-             {
-            sol.push_back(subsol);
-                 c=1;
-             }
+             if(c==0) c=1;
             else
             {
                 reverse(subsol.begin(),subsol.end());
-                sol.push_back(subsol);
                 c=0;
             }
+             sol.push_back(subsol);
         }
         return sol;
         
