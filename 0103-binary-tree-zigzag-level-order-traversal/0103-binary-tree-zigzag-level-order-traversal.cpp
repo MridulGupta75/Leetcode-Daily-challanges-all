@@ -20,15 +20,17 @@ public:
         int c=0;
         while(!q.empty())
         {
-            vector<int>subsol;
+          
             int n=q.size();
-           
+             vector<int>subsol(n);
             for(int i=0;i<n;i++)
             {
                  TreeNode*temp=q.front();
-                subsol.push_back(temp->val);
+                 int index=(c==0)?i:n-1-i;
+                subsol[index]=(temp->val);
                   q.pop();
                
+                    
                       if(temp->left!=NULL)q.push(temp->left);
                       if(temp->right!=NULL)q.push(temp->right);
                  
@@ -37,7 +39,7 @@ public:
              if(c==0) c=1;
             else
             {
-                reverse(subsol.begin(),subsol.end());
+                // reverse(subsol.begin(),subsol.end());
                 c=0;
             }
              sol.push_back(subsol);
