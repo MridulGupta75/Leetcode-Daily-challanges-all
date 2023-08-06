@@ -11,33 +11,46 @@
  */
 class Solution {
 public:
-    vector<int> rightSideView(TreeNode* root) {
-         if(root==NULL)return {};
-   queue<pair<TreeNode*,int>>q;
-   map<int,int>mpp;
-   q.push({root,0});
-   while(!q.empty())
-   {
-       int size=q.size();
-       for(int i=0;i<size;i++)
-       {
-           TreeNode*node=q.front().first;
-           int ht=q.front().second;
-           q.pop();
-           // auto itr=mpp.find(ht);
-           // if(itr==mpp.end()) 
-           // mpp.insert({ht, node->data});
-           mpp[ht]=node->val;
-            if(node->left!=NULL)q.push({node->left,ht+1});
-            if(node->right!=NULL)q.push({node->right,ht+1});
-       }
-   }
-    vector<int>sol;
-    for(auto&x:mpp)
+    void func(TreeNode* root,vector<int>&sol,int level)
     {
-       sol.push_back(x.second);
+        if(root==NULL)return;
+        if(level==sol.size())sol.push_back(root->val);
+        func(root->right,sol,level+1);
+         func(root->left,sol,level+1);
     }
-    return sol;
+    vector<int> rightSideView(TreeNode* root) {
+        //Iterative
+   //       if(root==NULL)return {};
+   // queue<pair<TreeNode*,int>>q;
+   // map<int,int>mpp;
+   // q.push({root,0});
+   // while(!q.empty())
+   // {
+   //     int size=q.size();
+   //     for(int i=0;i<size;i++)
+   //     {
+   //         TreeNode*node=q.front().first;
+   //         int ht=q.front().second;
+   //         q.pop();
+   //         mpp[ht]=node->val;
+   //          if(node->left!=NULL)q.push({node->left,ht+1});
+   //          if(node->right!=NULL)q.push({node->right,ht+1});
+   //     }
+   // }
+   //  vector<int>sol;
+   //  for(auto&x:mpp)
+   //  {
+   //     sol.push_back(x.second);
+   //  }
+   //  return sol;
+        
+        
+        //recursive
+        vector<int>sol;
+        func(root,sol,0);
+        return sol;
+        
+        
         
     }
 };
