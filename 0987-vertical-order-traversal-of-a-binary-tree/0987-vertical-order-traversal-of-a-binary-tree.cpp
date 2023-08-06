@@ -35,9 +35,7 @@ public:
         {
             vector<int>subsol;
             for(auto&y:x.second)
-            {
-                 subsol.insert(subsol.end(),y.second.begin(),y.second.end());
-            }
+             subsol.insert(subsol.end(),y.second.begin(),y.second.end());
             sol.push_back(subsol);
         }
         return sol;
