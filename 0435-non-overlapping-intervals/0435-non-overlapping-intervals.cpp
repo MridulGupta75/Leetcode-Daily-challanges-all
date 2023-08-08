@@ -1,11 +1,11 @@
 class Solution {
 public:
-    static bool comp(vector<int>&x,vector<int>&y)
-    {
-        return x[0]<y[0];
-    }
+    // static bool comp(vector<int>&x,vector<int>&y)
+    // {
+    //     return x[0]<y[0];
+    // }
     int eraseOverlapIntervals(vector<vector<int>>& nums) {
-        sort(nums.begin(),nums.end(),comp);
+        sort(nums.begin(),nums.end());
         int i=1;
         int n=nums.size();
         int l=0,c=0;
