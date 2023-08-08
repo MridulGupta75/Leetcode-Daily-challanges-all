@@ -37,7 +37,7 @@ public:
             for(int i=0;i<size;i++)
             {
                 TreeNode*node=q.front().first;
-                int r=q.front().second;
+                int r=q.front().second-mini;
                   q.pop();
                 if(node->left) q.push({node->left,r*1LL*2+1});
                 if(node->right)q.push({node->right,r*1LL*2+2});
