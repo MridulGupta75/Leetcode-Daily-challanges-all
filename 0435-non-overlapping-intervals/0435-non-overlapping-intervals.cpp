@@ -1,23 +1,18 @@
 class Solution {
 public:
-    // static bool comp(vector<int>&x,vector<int>&y)
-    // {
-    //     return x[0]<y[0];
-    // }
     int eraseOverlapIntervals(vector<vector<int>>& nums) {
         sort(nums.begin(),nums.end());
-        int i=1;
-        int n=nums.size();
         int l=0,c=0;
-        while(i<n)
+        for(auto&x:nums)cout<<x[0]<<" "<<x[1]<<endl;
+        for(int i=1;i<nums.size();i++)
         {
-          if(nums[l][1]<=nums[i][0])
-          l=i;
-            else if(nums[l][1]>nums[i][1])
-            c++,l=i;
-            else if(nums[l][1]<=nums[i][1])
-            c++;
-            i++;
+            if(nums[i][0]<nums[l][1])
+            {
+                c++;
+                l=nums[i][1]<nums[l][1]?i:l;
+            }
+            else
+                l=i;
             
         }
         return c;
