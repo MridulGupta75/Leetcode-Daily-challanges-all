@@ -8,70 +8,67 @@
  * };
  */
 class Solution {
-public:
-    unordered_map<TreeNode*, TreeNode*> parent;
-    void addParent(TreeNode* root) {
-        if(!root)
-            return;
-        
-        if(root->left)
-            parent[root->left] = root;
-        
-        addParent(root->left);
-        
-        if(root->right)
-            parent[root->right] = root;
-        
-        addParent(root->right);
-    }
-    
-    void collectKDistanceNodes(TreeNode* target, int k, vector<int>& result) {
-        
-        queue<TreeNode*> que;
-        que.push(target);
-        unordered_set<int> visited;
-        visited.insert(target->val);
-        
-        while(!que.empty()) {
-            
-            int n = que.size();
-            if(k == 0)
-                break;
-            
-            while(n--) {
-                TreeNode* curr = que.front();
-                que.pop();
-                
-                if(curr->left && !visited.count(curr->left->val)) {
-                    que.push(curr->left);
-                    visited.insert(curr->left->val);
+private:
+    unordered_map<TreeNode*,TreeNode*>parent;
+    void getParents(TreeNode*root)
+    {
+        parent[root]=NULL;
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty())
+        {
+            int size=q.size();
+            for(int i=0;i<size;i++)
+            {
+                TreeNode*node=q.front();
+                q.pop();
+                if(node->left)
+                {
+                    q.push(node->left);
+                    parent[node->left]=node;
                 }
-                if(curr->right && !visited.count(curr->right->val)) {
-                    que.push(curr->right);
-                    visited.insert(curr->right->val);
+                 if(node->right)
+                {
+                    q.push(node->right);
+                    parent[node->right]=node;
                 }
                 
-                if(parent.count(curr) && !visited.count(parent[curr]->val)) {
-                    que.push(parent[curr]);
-                    visited.insert(parent[curr]->val);
-                }
             }
-            k--;
-        }
-        
-        while(!que.empty()) {
-            TreeNode* temp = que.front();
-            que.pop();
-            result.push_back(temp->val);
         }
     }
-    
+public:
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        vector<int> result;
-        
-        addParent(root);
-        
-        collectKDistanceNodes(target, k, result);
-        return result;
+        getParents(root);
+        set<TreeNode*>visited;
+          queue<TreeNode*>q;
+        q.push(target);
+        visited.insert(target);
+          while(k--)
+          {
+              int size=q.size();
+              
+              for(int i=0;i<size;i++)
+              {
+                  TreeNode*node=q.front();
+                  q.pop(); 
+                  if(node->left&&visited.find(node->left)==visited.end())
+                      q.push(node->left),visited.insert(node->left);
+                   if(node->right&&visited.find(node->right)==visited.end())
+                      q.push(node->right),visited.insert(node->right);
+                  TreeNode*temp=parent[node];
+                  if(temp&&visited.find(temp)==visited.end())
+                       q.push(temp),visited.insert(temp);
+                  
+              }
+          }
+        vector<int>sol;
+        while(!q.empty())
+        {
+            sol.push_back(q.front()->val);
+            q.pop();
+        }
+        return sol;
+       
+       
     }
 };
