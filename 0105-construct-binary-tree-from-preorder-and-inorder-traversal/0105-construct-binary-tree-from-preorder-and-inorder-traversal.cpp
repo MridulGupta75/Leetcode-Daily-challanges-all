@@ -24,19 +24,21 @@ private:
         return -1;
     }
     
-    TreeNode* makeTree(TreeNode*root , vector<bool>&vis_pre , vector<int>&inorder, int start , int end , vector<int>&preorder)
+    TreeNode* makeTree(TreeNode*root , int&pre_idx , vector<int>&inorder, int start , int end , vector<int>&preorder)
     {
-        int pre_idx=visited(vis_pre);
-        if(pre_idx==-1)return NULL;
+        // int pre_idx=visited(vis_pre);
+        // if(pre_idx==-1)return NULL;
+        if(pre_idx>=preorder.size())return NULL;
         int idx=findIndex(preorder[pre_idx],inorder,start,end);
         if(idx==-1)return NULL;
         if(root==NULL)
         {
         root=new TreeNode(preorder[pre_idx]);
-        vis_pre[pre_idx]=true;
+            pre_idx++;
+        // vis_pre[pre_idx]=true;
         }
-        root->left=makeTree(root->left,vis_pre,inorder,start,idx-1,preorder);
-        root->right=makeTree(root->right,vis_pre,inorder,idx+1,end,preorder);
+        root->left=makeTree(root->left,pre_idx,inorder,start,idx-1,preorder);
+        root->right=makeTree(root->right,pre_idx,inorder,idx+1,end,preorder);
         return root;
     }
     
@@ -44,7 +46,7 @@ public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         int pre=0;
         vector<bool>vis_pre(inorder.size(),0);
-        return makeTree(NULL,vis_pre,inorder,0,inorder.size()-1,preorder);
+        return makeTree(NULL,pre,inorder,0,inorder.size()-1,preorder);
         
     }
 };
