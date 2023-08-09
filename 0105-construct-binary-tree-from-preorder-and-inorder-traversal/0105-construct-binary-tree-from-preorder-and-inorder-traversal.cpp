@@ -22,7 +22,7 @@ private:
         if(pre_idx>=preorder.size())return NULL;
         int idx=findIndex(preorder[pre_idx],inorder,start,end);
         if(idx==-1)return NULL;
-        if(root==NULL) root=new TreeNode(preorder[pre_idx]),pre_idx++;
+        root=new TreeNode(preorder[pre_idx]),pre_idx++;
         root->left=makeTree(root->left,pre_idx,inorder,start,idx-1,preorder);
         root->right=makeTree(root->right,pre_idx,inorder,idx+1,end,preorder);
         return root;
