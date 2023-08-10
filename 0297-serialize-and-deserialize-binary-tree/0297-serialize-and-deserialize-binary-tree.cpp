@@ -12,6 +12,7 @@ public:
 
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
+        if(root==NULL)return "";
         queue<TreeNode*>q;
         string str="";
         q.push(root);
@@ -42,7 +43,7 @@ public:
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
-        if(data=="n,")return NULL;
+        if(data=="")return NULL;
         queue<TreeNode*>q;
         stringstream s(data);
         string str="";
