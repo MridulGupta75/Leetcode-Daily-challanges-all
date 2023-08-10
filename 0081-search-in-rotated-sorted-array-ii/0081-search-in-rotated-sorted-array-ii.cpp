@@ -1,6 +1,6 @@
 class Solution {
     private:
-    bool binarySearch(vector<int>&nums,int target,int l,int r)
+    bool binarySearch(vector<int>&nums,int&target,int l,int r)
     {
         while(l<=r)
         {
