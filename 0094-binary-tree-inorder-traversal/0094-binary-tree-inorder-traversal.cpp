@@ -24,7 +24,32 @@ public:
     vector<int> inorderTraversal(TreeNode* root) {
         
         vector<int>sol;
-        inorder(sol,root);
+        // inorder(sol,root);
+        // return sol;
+        
+        //morris Inorder
+        TreeNode*curr=root;
+        while(curr!=NULL)
+        {
+            if(curr->left!=NULL)
+            {
+                TreeNode*pre=curr->left;
+                while(pre->right&&pre->right!=curr)
+                    pre=pre->right;
+                if(pre->right==NULL) pre->right=curr,curr=curr->left;
+                else 
+                {
+                    sol.push_back(curr->val);
+                    pre->right=NULL;
+                    curr=curr->right;
+                }
+            }
+            else
+            {
+                 sol.push_back(curr->val);
+                curr=curr->right;
+            }
+        }
         return sol;
         
     }
