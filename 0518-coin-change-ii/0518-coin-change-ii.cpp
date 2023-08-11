@@ -17,8 +17,26 @@ private:
         
     }
 public:
-    int change(int amount, vector<int>& coins) {
-        vector<vector<int>>dp(coins.size(),vector<int>(amount+1,-1));
-        return coinChange(amount,coins.size()-1,coins,dp);
+    int change(int amounts, vector<int>& coins) {
+        // vector<vector<int>>dp(coins.size(),vector<int>(amount+1,-1));
+        // return coinChange(amount,coins.size()-1,coins,dp);
+         vector<vector<int>>dp(coins.size(),vector<int>(amounts+1,0));
+        int n=coins.size();
+        for(int i=0;i<n;i++)dp[i][0]=1;
+        for(int index=0;index<n;index++)
+        {
+            for(int amount=1;amount<=amounts;amount++)
+            {
+                int take=0,notTake=0;
+                 if(coins[index]<=amount)
+                take=dp[index][amount-coins[index]];
+                 if(index!=0) notTake=dp[index-1][amount];
+                 dp[index][amount]=take+notTake;
+            }
+        }
+        return dp[coins.size()-1][amounts];
+        
+        
+        
     }
 };
