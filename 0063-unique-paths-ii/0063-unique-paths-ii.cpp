@@ -10,8 +10,9 @@ int findWays(int i,int j,int m,int n,vector<vector<int>>& Mat,vector<vector<int>
 }
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& Mat) {
-        if(Mat[Mat.size()-1][Mat[0].size()-1]==1)return 0;
-        vector<vector<int>>dp(Mat.size(),vector<int>(Mat[0].size(),-1));
+        int m=Mat.size(),n=Mat[0].size();
+        if(Mat[m-1][n-1]==1)return 0;
+        vector<vector<int>>dp(m,vector<int>(n,-1));
         return findWays(0,0,Mat.size(),Mat[0].size(),Mat,dp);
         
     }
