@@ -10,18 +10,25 @@
  */
 class Solution {
 public:
+    struct comp
+    {
+      bool operator()(ListNode*a,ListNode*b)
+      {
+           return a->val>b->val;
+      }
+    };
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-      priority_queue<pair<int,ListNode*>,vector<pair<int,ListNode*>>,greater<pair<int,ListNode*>>>pq;
+      priority_queue<ListNode*,vector<ListNode*>,comp>pq;
         for(int i=0;i<lists.size();i++)
         {
             if(lists[i]!=NULL)
-            pq.push({lists[i]->val,lists[i]});
+            pq.push(lists[i]);
         }
             ListNode*ans=NULL,*tail=NULL;
         
         while(!pq.empty())
         {
-            ListNode*node=pq.top().second;
+            ListNode*node=pq.top();
             pq.pop();
             if(ans==NULL)ans=tail=node;
             else
@@ -29,7 +36,7 @@ public:
                 tail->next=node;
                 tail=tail->next;
             }
-                if(node->next!=NULL) pq.push({node->next->val,node->next});
+                if(node->next!=NULL) pq.push(node->next);
         }
         return ans;
         
