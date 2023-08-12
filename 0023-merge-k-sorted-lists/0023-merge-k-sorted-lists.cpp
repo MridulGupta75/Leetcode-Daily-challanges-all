@@ -23,18 +23,13 @@ public:
         {
             ListNode*node=pq.top().second;
             pq.pop();
-            // if(node!=NULL)
-            // {
             if(ans==NULL)ans=tail=node;
             else
             {
                 tail->next=node;
                 tail=tail->next;
             }
-                if(node->next!=NULL)
-                pq.push({node->next->val,node->next});
-            // }
-            
+                if(node->next!=NULL) pq.push({node->next->val,node->next});
         }
         return ans;
         
