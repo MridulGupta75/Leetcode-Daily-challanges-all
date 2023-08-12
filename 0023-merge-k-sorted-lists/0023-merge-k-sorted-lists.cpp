@@ -11,38 +11,32 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        ListNode*head=NULL;
-        for(auto it:lists)
-           insert(head,it);
-        return head;
-        
-    }
-    void insert(ListNode*&head,ListNode*it)
-    {
-        if(it==NULL)return;
-        if(head==NULL)head=it;
-        else
+      priority_queue<pair<int,ListNode*>,vector<pair<int,ListNode*>>,greater<pair<int,ListNode*>>>pq;
+        for(int i=0;i<lists.size();i++)
         {
-            while(it!=NULL)
-            {
-                int value=it->val;ListNode*kk=it;it=it->next,delete kk;ListNode*p=new ListNode(value);
-                if(head->val>=value) p->next=head,head=p;
-                else
-                {
-                    ListNode*pre=head,*temp=head->next;
-                    while(temp!=NULL)
-                    {
-                        if(temp->val>=value)  
-                        {
-                        pre->next=p,p->next=temp;break;
-                        }
-                        temp=temp->next,pre=pre->next;
-                    }
-                    if(temp==NULL) pre->next=p;
-                }
-                
-            }
+            if(lists[i]!=NULL)
+            pq.push({lists[i]->val,lists[i]});
         }
+            ListNode*ans=NULL,*tail=NULL;
+        
+        while(!pq.empty())
+        {
+            ListNode*node=pq.top().second;
+            pq.pop();
+            // if(node!=NULL)
+            // {
+            if(ans==NULL)ans=tail=node;
+            else
+            {
+                tail->next=node;
+                tail=tail->next;
+            }
+                if(node->next!=NULL)
+                pq.push({node->next->val,node->next});
+            // }
+            
+        }
+        return ans;
         
     }
 };
