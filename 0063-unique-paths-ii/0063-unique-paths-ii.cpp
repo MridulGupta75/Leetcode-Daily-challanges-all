@@ -11,8 +11,28 @@ public:
     int uniquePathsWithObstacles(vector<vector<int>>& Mat) {
         int m=Mat.size(),n=Mat[0].size();
         if(Mat[0][0]==1)return 0;
-        vector<vector<int>>dp(m,vector<int>(n,-1));
-        return func(m-1,n-1,Mat,dp);
+        // vector<vector<int>>dp(m,vector<int>(n,-1));
+        // return func(m-1,n-1,Mat,dp);
+         vector<vector<int>>dp(m,vector<int>(n,0));
+        for(int i=0;i<=m-1;i++)
+        {
+            for(int j=0;j<=n-1;j++)
+            {
+                if(i==0&&j==0)dp[i][j]=1;
+                else
+                {
+                    if(Mat[i][j]==1)dp[i][j]=0;
+                    else
+                    {
+                    int r=0,l=0;
+                    if(i>0) r=dp[i-1][j];
+                    if(j>0) l=dp[i][j-1];
+                    dp[i][j]=r+l;
+                    }
+                }
+            }
+        }
+        return dp[m-1][n-1];
         
     }
 };
