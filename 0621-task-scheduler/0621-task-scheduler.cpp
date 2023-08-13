@@ -11,15 +11,15 @@ public:
         while(!pq.empty() || !q.empty())
         {
             
-            if(!q.empty())
+            while(!q.empty())
             {
                 int k=q.front().second;
-                if(k<=t)
+                if(k==t)
                 {
                     pq.push(q.front().first);
                     q.pop();
                 }
-                // else break;
+                else break;
             }
             
             if(!pq.empty())
