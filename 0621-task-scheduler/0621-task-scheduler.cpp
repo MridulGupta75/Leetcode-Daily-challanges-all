@@ -7,14 +7,7 @@ public:
         priority_queue<int>pq;
         queue<pair<int,int>>q;
         for(auto&x:mpp)pq.push(x.second);
-        int t=0; 
-        
-        // while(!pq.empty())
-        // {
-        //     cout<<pq.top()<<" ";
-        //     pq.pop();
-        // }
-        
+        int t=0;
         while(!pq.empty() || !q.empty())
         {
             
