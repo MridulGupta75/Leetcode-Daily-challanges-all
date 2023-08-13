@@ -8,7 +8,6 @@ public:
             int m=k-1;
             auto it=mpp.begin();
             int number=it->first;
-            // int freq=it->second;
             mpp[number]--;
             if(mpp[number]==0)mpp.erase(number);
             while(m--)
