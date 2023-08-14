@@ -7,7 +7,7 @@ public:
             if(nums[j]!=0&&nums[i]==0)
             {
                 swap(nums[i],nums[j]);
-                while(i<j&&nums[i]!=0)i++;
+               i++;
             }
             else
             {
