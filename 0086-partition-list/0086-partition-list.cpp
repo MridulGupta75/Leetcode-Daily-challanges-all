@@ -41,7 +41,6 @@ public:
         }
         if(sp==NULL)return large;
         else sp->next=large;
-      
         return small;
         
         
