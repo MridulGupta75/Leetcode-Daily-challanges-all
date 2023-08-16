@@ -1,31 +1,36 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        // set<vector<int>>s;
-         vector<vector<int>>sol;
-         sort(nums.begin(),nums.end());                                       
-        for(int i=0;i<nums.size()-2;i++)
+        sort(nums.begin(),nums.end());
+        vector<vector<int>>sol;
+        for(int f=0;f<=nums.size()-3;f++)
         {
-            if(i>0&&nums[i]==nums[i-1])continue;
-            int l=i+1;
-            int h=nums.size()-1;
-            while(l<h)
+            int i=f+1,j=nums.size()-1;
+            while(i<j)
             {
-            if(nums[i]+nums[l]+nums[h]==0)
-            {
-                sol.push_back({nums[i],nums[l],nums[h]}); 
-                while(l<h&&nums[l+1]==nums[l])l++;
-                 while(l<h&&nums[h-1]==nums[h])h--;
-                l++,h--;
+                long long k=nums[f]+nums[i];
+                 if(k==-1*nums[j])
+                {
+                    sol.push_back({nums[f],nums[i],nums[j]});
+                      while(i<j&&nums[i]==nums[i+1])i++;
+                      while(i<j&&nums[j]==nums[j-1])j--;
+                     i++,j--;
+                }
+                else if(k<-1*nums[j])
+                {
+                    while(i<j&&nums[i]==nums[i+1])i++;
+                    i++;
+                }
+                else 
+                {
+                    while(i<j&&nums[j]==nums[j-1])j--;
+                    j--;
+                }
             }
-            else if(nums[l]+nums[h]<-1*nums[i]) l++;
-            else h--;
-            }
+            while(f<=nums.size()-3&&nums[f]==nums[f+1])f++;
             
         }
-       
-        // for(auto&x:s) sol.push_back(x);
-            return sol;
+        return sol;
         
     }
 };
