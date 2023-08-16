@@ -18,12 +18,12 @@ public:
                 }
                 else if(k<-1*nums[j])
                 {
-                    while(i<j&&nums[i]==nums[i+1])i++;
+                    // while(i<j&&nums[i]==nums[i+1])i++;
                     i++;
                 }
                 else 
                 {
-                    while(i<j&&nums[j]==nums[j-1])j--;
+                    // while(i<j&&nums[j]==nums[j-1])j--;
                     j--;
                 }
             }
