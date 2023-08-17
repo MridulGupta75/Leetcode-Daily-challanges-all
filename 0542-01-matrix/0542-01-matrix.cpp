@@ -11,7 +11,6 @@ public:
             {
                 if(mat[i][j]==0)
                 {
-                    
                     sol[i][j]=0;
                     q.push({i,j});
                 }
