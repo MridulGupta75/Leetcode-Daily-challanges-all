@@ -1,22 +1,25 @@
 class Solution {
 public:
-    bool func(int i,int total,vector<int>& nums,vector<vector<int>>&dp)
-    {
-        if(i>=nums.size())return false;
-        if(total==0)return true;
-        if(total<0)return false;
-        if(dp[i][total]!=-1)return dp[i][total];
-        bool pick=false;
-        if(nums[i]<=total)
-        pick=func(i+1,total-nums[i],nums,dp);
-        bool notpick=func(i+1,total,nums,dp);
-        return dp[i][total]=pick|notpick;
-    }
+    bool func(int idx,int target,vector<int>&arr,vector<vector<int>>&dp)
+{
+    // if(target<0)return false;
+    if(target==0)return true;
+    if(idx==0)return arr[0]==target;
+    if(dp[idx][target]!=-1)return dp[idx][target];
+    //taking
+    bool taking=false;
+    if(arr[idx]<=target)
+    taking=func(idx-1,target-arr[idx],arr,dp);
+    return dp[idx][target]=taking|func(idx-1,target,arr,dp);
+}
+    
     bool canPartition(vector<int>& nums) {
-        int total=0;
-        for(auto&x:nums)total+=x;
-         if(total%2!=0)return false;
-        vector<vector<int>>dp(nums.size(),vector((total/2)+1,-1));
-        return func(0,(total/2),nums,dp);
+        
+           int sum=0;
+         for(auto&x:nums)sum+=x;
+        if(sum%2)return false;
+        int k=sum/2;
+            vector<vector<int>>dp(nums.size(),vector<int>(k+1,-1));
+            return func(nums.size()-1,k,nums,dp);
     }
 };
