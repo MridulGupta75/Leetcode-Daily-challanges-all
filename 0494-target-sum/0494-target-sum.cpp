@@ -5,10 +5,11 @@ class Solution {
         if(idx<0)return 0;
         if(idx==0&&(target-nums[idx]==0||target+nums[idx]==0))
         {
-           int c=0;
-            if(target-nums[idx]==0)c++;
-            if(target+nums[idx]==0)c++;
-            return c;
+            // int c=0;
+            // if(target-nums[idx]==0)c++;
+            // if(target+nums[idx]==0)c++;
+            // return c;
+            return target==0&&nums[idx]==0?2:1;
         }
         int minus=func(idx-1,target-nums[idx],nums);
         int add=func(idx-1,target+nums[idx],nums);
