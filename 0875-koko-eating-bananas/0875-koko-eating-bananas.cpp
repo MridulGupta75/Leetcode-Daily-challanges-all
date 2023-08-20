@@ -7,17 +7,13 @@ class Solution {
         {
             if(x!=k)
             {
-                int d=(x/k);
-                if(x%k!=0)
-                 c=c+d+1;
-                else
-                    c+=d;
+                int d=x/k;
+                if(x%k!=0)c+=d+1;
+                else c+=d;
                 
             }
-            else
-            {
-                c++;
-            }
+            else c++;
+
              if(c>h)return false;
             
         }
