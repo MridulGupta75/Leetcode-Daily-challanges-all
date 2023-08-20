@@ -23,7 +23,7 @@ class Solution {
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
         int l=1;
-        int high=INT_MAX;
+        int high=*max_element(piles.begin(),piles.end());
         int min;
         while(l<=high)
         {
