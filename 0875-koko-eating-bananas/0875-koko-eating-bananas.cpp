@@ -5,17 +5,18 @@ class Solution {
         int c=0;
         for(auto&x:piles)
         {
-            if(x!=k)
-            {
-                int d=x/k;
-                if(x%k!=0)c+=d+1;
-                else c+=d;
+//             if(x!=k)
+//             {
+//                 int d=x/k;
+//                 if(x%k!=0)c+=d+1;
+//                 else c+=d;
                 
-            }
-            else c++;
+//             }
+//             else c++;
 
-             if(c>h)return false;
-            
+//              if(c>h)return false;
+            c+=ceil((double)x/(double)k);
+            if(c>h)return  false;
         }
         return true;
     }
