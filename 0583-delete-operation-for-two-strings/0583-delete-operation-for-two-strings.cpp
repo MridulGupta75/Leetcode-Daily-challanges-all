@@ -12,6 +12,6 @@ public:
 
             pre=curr;
         }
-        return l1+l2-(pre[l2]<<1);
+        return l1+l2-(pre[l2]*2);
     }
 };
