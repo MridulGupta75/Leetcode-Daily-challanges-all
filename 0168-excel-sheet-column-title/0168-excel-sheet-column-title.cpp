@@ -7,7 +7,6 @@ public:
         while(cn>26)
         {
             int rem=cn%26;
-           
             str=ch[rem]+str;
             cn=cn/26;
             if(rem==0)cn--;
