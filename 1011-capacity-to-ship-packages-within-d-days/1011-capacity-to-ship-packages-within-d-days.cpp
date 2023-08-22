@@ -6,7 +6,7 @@ class Solution {
         int sum=0;
         for(auto&x:nums)
         {
-            // if(mid<x)return -1;
+            if(mid<x)return INT_MAX;
             sum+=x;
             if(sum>mid)
             {
@@ -18,7 +18,7 @@ class Solution {
     }
 public:
     int shipWithinDays(vector<int>& weights, int days) {
-        int l=*max_element(weights.begin(),weights.end()),h=INT_MAX;
+        int l=1,h=INT_MAX;
         int ans=INT_MAX;
         while(l<=h)
         {
