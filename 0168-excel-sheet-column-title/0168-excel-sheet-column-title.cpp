@@ -4,20 +4,22 @@ class Solution {
 public:
     string convertToTitle(int cn) {
         stack<char>st;
+        string str="";
         while(cn>26)
         {
             int rem=cn%26;
-            st.push(ch[rem]);
+            // st.push(ch[rem]);
+            str=ch[rem]+str;
             cn=cn/26;
             if(rem==0)cn--;
         }
-        st.push(ch[cn]);
-        string str="";
-        while(!st.empty())
-        {
-            str+=st.top();
-            st.pop();
-        }
+        // st.push(ch[cn]);
+       str=ch[cn]+str;
+        // while(!st.empty())
+        // {
+        //     str+=st.top();
+        //     st.pop();
+        // }
         return str;
     }
 };
