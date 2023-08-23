@@ -12,20 +12,10 @@ public:
         while(!pq.empty())
         {
             str+=pq.top().second;
-            if((c.first)!=1)
-            {
-                auto a=pq.top();
-                 pq.pop();
-                pq.push({(c.first)-1,c.second});
-                c=a;
-            }
-            else 
-            {
-                 auto a=pq.top();
-                pq.pop();
-                 c=a;
-            }
-           
+             auto a=pq.top();
+             pq.pop();
+            if((c.first)!=1) pq.push({(c.first)-1,c.second});
+            c=a;
         }
         
         return str.size()==s.size()?str:"";
