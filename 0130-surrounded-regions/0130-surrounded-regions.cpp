@@ -6,7 +6,7 @@ public:
         int m=board.size();
         int n=board[0].size();
         vector<vector<bool>>vis(m,vector<bool>(n,0));
-         vector<vector<char>>sol(m,vector<char>(n,'O'));
+       
         queue<pair<int,int>>q;
         for(int j=0;j<n;j++)
         {
@@ -35,7 +35,6 @@ public:
                   vis[i][n-1]=1;
             }
         }
-        // cout<<q.front().first<<" "<<q.front().second<<" "<<q.size();
         while(!q.empty())
         {
             auto t=q.front();
@@ -59,11 +58,11 @@ public:
             {
                
                 if(vis[i][j]!=1)
-                    sol[i][j]='X';
+                board[i][j]='X';
             }
             
         }
-       board=sol;
+       // board=sol;
         
     }
 };
