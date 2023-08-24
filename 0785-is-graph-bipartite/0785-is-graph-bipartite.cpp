@@ -31,10 +31,9 @@ public:
         int v=graph.size();
         vector<int>color(v,-1);
         for(int i=0;i<v;i++)
-        {
-            if(color[i]==-1) if(!BFS(graph,color,i))return false;
+        if(color[i]==-1&&!BFS(graph,color,i))return false;
             
-        }
+        
         return true;
     }
 };
