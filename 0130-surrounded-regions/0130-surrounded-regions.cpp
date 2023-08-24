@@ -62,7 +62,6 @@ public:
             }
             
         }
-       // board=sol;
-        
+
     }
 };
