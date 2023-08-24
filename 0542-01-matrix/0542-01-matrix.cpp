@@ -12,7 +12,7 @@ public:
             {
                 if(mat[i][j]==0)
                 {
-                    q.push({i,j,0});
+                    q.push({i,j});
                     vis[i][j]=1;
                 }
             }
@@ -28,8 +28,8 @@ public:
                 if(new_row>=0&&new_row<mat.size()&&new_col>=0&&new_col<mat[0].size()&&vis[new_row][new_col]==0)
                 {
                     vis[new_row][new_col]=1;
-                    sol[new_row][new_col]=x[2]+1;
-                    q.push({new_row,new_col,x[2]+1});
+                    sol[new_row][new_col]=sol[x[0]][x[1]]+1;
+                    q.push({new_row,new_col});
                 }
             }
         }
