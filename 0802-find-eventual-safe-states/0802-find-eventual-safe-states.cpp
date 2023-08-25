@@ -1,35 +1,38 @@
 class Solution {
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
-        int n=graph.size();
-        vector<int> vis(n,0);
-        vector<int> dis(n,0);
-        vector<int> adj[n];
-        for(int i=0;i<n;i++){
-            for(auto &x:graph[i]){
-                adj[x].push_back(i);
-                dis[i]++;
+        vector<int>adj[graph.size()];
+        for(int i=0;i<graph.size();i++)
+        {
+            for(int j=0;j<graph[i].size();j++)
+            {
+                adj[graph[i][j]].push_back(i);
             }
         }
-        queue<int> q;
-        for(int i=0;i<n;i++){
-            if(dis[i]==0){
-                q.push(i);
+        vector<int>indeg(graph.size(),0);
+        for(auto&x:adj)
+        {
+            for(auto&y:x)
+            {
+                indeg[y]++;
             }
         }
-        vector<int> ans;
-        while(!q.empty()){
-            int node=q.front();
-            ans.push_back(node);
+        queue<int>q;
+         vector<int>sol;
+        for(int i=0;i<indeg.size();i++)
+            if(indeg[i]==0)q.push(i);
+        while(!q.empty())
+        {
+            int ele=q.front();
             q.pop();
-            for(auto x:adj[node]){
-                dis[x]--;
-                if(dis[x]==0){
-                    q.push(x);
-                }
-            }
+            sol.push_back(ele);
+            for(auto&x:adj[ele])
+            {
+                indeg[x]--;
+                if(indeg[x]==0)q.push(x);
+            }      
         }
-        sort(ans.begin(),ans.end());
-        return ans;
+        sort(sol.begin(),sol.end());
+        return sol;
     }
 };
