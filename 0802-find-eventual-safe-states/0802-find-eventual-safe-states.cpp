@@ -2,25 +2,23 @@ class Solution {
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         vector<int>adj[graph.size()];
+        
         for(int i=0;i<graph.size();i++)
-        {
-            for(int j=0;j<graph[i].size();j++)
-            {
-                adj[graph[i][j]].push_back(i);
-            }
-        }
+        for(auto&x:graph[i]) adj[x].push_back(i);
+    
         vector<int>indeg(graph.size(),0);
+        
         for(auto&x:adj)
-        {
-            for(auto&y:x)
-            {
-                indeg[y]++;
-            }
-        }
+             for(auto&y:x)
+                 indeg[y]++;
+        
+        
         queue<int>q;
          vector<int>sol;
+        
         for(int i=0;i<indeg.size();i++)
             if(indeg[i]==0)q.push(i);
+        
         while(!q.empty())
         {
             int ele=q.front();
