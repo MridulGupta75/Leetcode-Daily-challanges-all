@@ -19,7 +19,7 @@ class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {
         e=s1.size(),e1=s2.size(),e2=s3.size();
-        vector<vector<vector<int>>>dp(201,vector<vector<int>>(201,vector<int>(201,-1)));
+        vector<vector<vector<int>>>dp(101,vector<vector<int>>(101,vector<int>(201,-1)));
         return func(0,0,0,s1,s2,s3,dp);
     }
 };
