@@ -30,6 +30,7 @@ public:
                 if(indeg[x]==0)q.push(x);
             }      
         }
+        
         sort(sol.begin(),sol.end());
         return sol;
     }
