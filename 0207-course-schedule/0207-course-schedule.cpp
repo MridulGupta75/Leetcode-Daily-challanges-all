@@ -9,8 +9,9 @@ public:
             indeg[x[0]]++;
         }
         queue<int>q;
-        for(int i=0;i<indeg.size();i++)if(indeg[i]==0)q.push(i);
-        int c=0;                                             
+        for(int i=0;i<indeg.size();i++) if(indeg[i]==0) q.push(i);
+        int c=0;          
+        
         while(!q.empty())
         {
             int ele=q.front();
