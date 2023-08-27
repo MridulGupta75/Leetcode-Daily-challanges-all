@@ -14,7 +14,9 @@ public:
             {
                 if(mpp.find(stones[i]+x)!=mpp.end())
                 {
+
                     if(stones[i]+x==last)return true;
+                    if(x>0)
                    mpp[stones[i]+x].insert({x-1,x,x+1});
                 }
             }
