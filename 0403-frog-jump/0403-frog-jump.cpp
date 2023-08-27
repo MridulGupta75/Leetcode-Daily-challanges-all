@@ -3,7 +3,7 @@ public:
     bool canCross(vector<int>& stones) {
         if(stones[1]!=1)return false;
         if(stones.size()==2)return true;
-        int last=stones[stones.size()-1];
+        // int last=stones[stones.size()-1];
         unordered_map<int ,set<int>>mpp;
         for(auto&x:stones)
         mpp.insert({x,{}});
@@ -15,7 +15,7 @@ public:
                 if(mpp.find(stones[i]+x)!=mpp.end())
                 {
 
-                    if(stones[i]+x==last)return true;
+                    if(stones[i]+x==stones[stones.size()-1])return true;
                     if(x>0) mpp[stones[i]+x].insert({x-1,x,x+1});
                 }
             }
