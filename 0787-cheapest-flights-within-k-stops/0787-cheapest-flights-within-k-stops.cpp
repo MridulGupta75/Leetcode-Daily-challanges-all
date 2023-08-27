@@ -1,59 +1,43 @@
-/*
-      MY YOUTUBE VIDEO ON THIS Qn : https://www.youtube.com/watch?v=VmUpydhNmuw
-      Company Tags                : GOOGLE
-      Leetcode Link               : https://leetcode.com/problems/cheapest-flights-within-k-stops/
-      GfG Link                    : https://practice.geeksforgeeks.org/problems/cheapest-flights-within-k-stops/1
-*/
-
-//Approach-1 (BFS)
 class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
-        vector<int> distance(n, INT_MAX);
-        
-        unordered_map<int, vector<pair<int, int>>> adj;
-        
-        for(vector<int> &vec : flights) {
-            int u    = vec[0];
-            int v    = vec[1];
-            int cost = vec[2];
-            
-            adj[u].push_back({v, cost});
+        //step 1->make an adj list
+        vector<pair<int,int>>adj[n];
+        //iterate on flights and store the values in adj list
+        for(auto&x:flights)
+        {
+            adj[x[0]].push_back({x[1],x[2]});
         }
-        
-        queue<pair<int, int>> que;
-        que.push({src, 0});
-        distance[src] = 0;
-        
-        int level = 0;
-        
-        while(!que.empty() && level <= k) {
-            int N = que.size();
-            
-            while(N--) {
-                int u = que.front().first;
-                int d = que.front().second;
-                que.pop();
-                
-                for(pair<int, int> &P : adj[u]) {
-                    
-                    int v    = P.first;
-                    int cost = P.second;
-                    
-                    if(distance[v] > d + cost) {
-                        distance[v] = d + cost;
-                        que.push({v, d+cost});
-                    }
-                    
+    //step 2->make a dis array and make a queue an dpush the initial values
+        vector<int>dis(n,INT_MAX);
+        dis[src]=0;
+        queue<pair<int,int>>q;
+        q.push({src,0});
+        //iterate  on q with conditions of steps &&till it reaches emptyness
+        int steps=0;
+        while(!q.empty()&&steps<=k)
+        {
+            int n=q.size();
+            while(n--)
+            {
+            auto ele=q.front();
+            // cout<<ele.first<<" "<<steps<<endl;
+            q.pop();
+            for(auto&x:adj[ele.first])
+            {
+                int total_dis=ele.second+x.second;
+                if(total_dis<dis[x.first])
+                {
+                    dis[x.first]=total_dis;
+                    q.push({x.first,total_dis});
                 }
-                
             }
-            level++;
+            }
+            steps++;
+            
         }
+        return dis[dst]==INT_MAX?-1:dis[dst];
         
-        return distance[dst] == INT_MAX ? -1 : distance[dst];
+        
     }
 };
-
-
-//Other Approaches coming soon with youTube video link
