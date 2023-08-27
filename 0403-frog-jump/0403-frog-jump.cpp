@@ -16,8 +16,7 @@ public:
                 {
 
                     if(stones[i]+x==last)return true;
-                    if(x>0)
-                   mpp[stones[i]+x].insert({x-1,x,x+1});
+                    if(x>0) mpp[stones[i]+x].insert({x-1,x,x+1});
                 }
             }
         }
