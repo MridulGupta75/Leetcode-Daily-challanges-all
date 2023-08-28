@@ -24,7 +24,7 @@ public:
         {
              int c=0;
             for(int j=0;j<n;j++)
-            if(i!=j&&mat[i][j]<=distanceThreshold) c++;
+            if(mat[i][j]<=distanceThreshold) c++;
                 
              if(mini>=c)
              {
