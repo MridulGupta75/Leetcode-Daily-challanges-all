@@ -1,31 +1,44 @@
 class Solution {
-    void dfs(vector<int> adj[], vector<bool> &visited, int src)
+    private:
+    void BFS(vector<int>adj[],vector<bool>&vis,int src)
     {
-        visited[src] = true;
-        for(int i : adj[src]){
-            if(!visited[i]){
-                dfs(adj, visited, i);
+          queue<int>q;
+         q.push(src);
+        while(!q.empty())
+        {
+            int ele=q.front();
+            q.pop();
+            vis[ele]=1;
+            for(auto&x:adj[ele])
+            {
+                if(!vis[x])
+                {
+                    vis[x]=1;
+                    q.push(x);
+                }
             }
-        }
+        } 
     }
 public:
-    int makeConnected(int n, vector<vector<int>>& arr) {
-        int len = arr.size();
-        if(len<n-1) return -1;
-         vector<int> adj[n];
-        for(auto v : arr)
+    int makeConnected(int n, vector<vector<int>>& edges) {
+        if(n-1>edges.size())return -1;
+        vector<int>adj[n];
+        for(auto&x:edges)
         {
-            adj[v[0]].push_back(v[1]);
-            adj[v[1]].push_back(v[0]);
+            adj[x[0]].push_back(x[1]);
+            adj[x[1]].push_back(x[0]);
         }
-        vector<bool> visited(n, false);
-        int ans = 0;
-        for(int i=0; i<n; i++)
-        if(!visited[i])
+         vector<bool>vis(n,0);
+        int c=-1;
+        for(int i=0;i<n;i++)
         {
-            dfs(adj, visited, i);
-            ans++;
+            if(!vis[i])
+            {
+                BFS(adj,vis,i);
+                c++;
+            }
         }
-        return ans - 1;
+        return c;
+      
     }
 };
