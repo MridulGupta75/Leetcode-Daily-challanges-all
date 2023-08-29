@@ -19,10 +19,8 @@ public:
         no=0;
         for(int i=0;i<=customers.size();i++)
         {
-            // auto x=mpp[i];
             dp[i]=mpp[i].first+no;
              if(customers[i]=='N')no++;
-            
         }
         int mini=dp[0],pos=0;
         for(int i=1;i<=customers.size();i++)
