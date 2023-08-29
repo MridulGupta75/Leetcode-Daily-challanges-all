@@ -1,44 +1,51 @@
-class Solution {
-    private:
-    void BFS(vector<int>adj[],vector<bool>&vis,int src)
+class DisjointSet
+{
+  public:
+    vector<int>parent;
+    vector<int>size;
+  DisjointSet(int N)
+  {
+      parent.resize(N+1);
+      size.resize(N+1,1);
+      for(int i=0;i<=N;i++)
+          parent[i]=i;
+      
+  }
+    int fup(int x)
     {
-          queue<int>q;
-         q.push(src);
-        while(!q.empty())
-        {
-            int ele=q.front();
-            q.pop();
-            vis[ele]=1;
-            for(auto&x:adj[ele])
-            {
-                if(!vis[x])
-                {
-                    vis[x]=1;
-                    q.push(x);
-                }
-            }
-        } 
+        if(x==parent[x])return x;
+        return parent[x]=fup(parent[x]);
     }
+    void ubs(int u,int v)
+    {
+        int upu=fup(u);
+        int upv=fup(v);
+        if(upu==upv)return ;
+        if(size[upu]<size[upv])
+        {
+            parent[upu]=upv;
+            size[upv]=size[upv]+size[upu];
+        }
+        else
+        {
+            parent[upv]=upu;
+            size[upu]=size[upu]+size[upv];
+        }
+    }
+};
+
+
+class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& edges) {
         if(n-1>edges.size())return -1;
-        vector<int>adj[n];
+        DisjointSet ds(n);
         for(auto&x:edges)
-        {
-            adj[x[0]].push_back(x[1]);
-            adj[x[1]].push_back(x[0]);
-        }
-         vector<bool>vis(n,0);
+        ds.ubs(x[0],x[1]);
         int c=-1;
         for(int i=0;i<n;i++)
-        {
-            if(!vis[i])
-            {
-                BFS(adj,vis,i);
-                c++;
-            }
-        }
+        if(ds.parent[i]==i)c++;
+        
         return c;
-      
     }
 };
