@@ -1,43 +1,42 @@
 
- class DisjointSet
-{
-	private:
-	vector<int>parent,size;
-	public:
-   DisjointSet(int N)
-   {
-      parent.resize(N+1);
-	  size.resize(N+1,1);
-	  for(int i=0;i<=N;i++)parent[i]=i;
-   }
-   int findUprnt(int x)
-   {
-      if(x==parent[x])
-	  return parent[x];
-	  return parent[x]=findUprnt(parent[x]);
-   }
-   void unionBySize(int u,int v)
-   {
-     int ultpu=findUprnt(u);
-	 int ultpv=findUprnt(v);
-	 if(ultpu==ultpv)return;
-	 if(size[ultpu]<size[ultpv])
-	 {
-		 parent[ultpu]=ultpv;
-		 size[ultpv]+=size[ultpu];
-	 }
-	 else
-	 {
-         parent[ultpv]=ultpu;
-		 size[ultpu]+=size[ultpv];
-	 }
-   }
-};
-
+ class DijointSet
+    {
+        private:
+     vector<int>parent,size;
+     public:
+     DijointSet(int N)
+     {
+         parent.resize(N+1);
+         size.resize(N+1,1);
+         for(int i=0;i<=N;i++)parent[i]=i;
+     }
+     int findUParent(int x)
+     {
+         if(x==parent[x])return x;
+         return parent[x]=findUParent(parent[x]);
+     }
+     void UnionBySize(int u,int v)
+     {
+         int upu=findUParent(u);
+         int upv=findUParent(v);
+         if(upu==upv)return ;
+         if(size[upu]<size[upv])
+         {
+             parent[upu]=upv;
+             size[upv]+=size[upu];
+         }
+         else
+         {
+              parent[upv]=upu;
+             size[upu]+=size[upv];
+         }
+     }
+     
+    };    
 class Solution {
 public:
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-         DisjointSet ds(accounts.size());
+        DijointSet ds(accounts.size());
         map<string,int>mapToNode;
         
         for(int i=0;i<accounts.size();i++)
@@ -50,7 +49,7 @@ public:
                 }
                 else
                 {
-                    ds.unionBySize(i, mapToNode[accounts[i][j]]);
+                    ds.UnionBySize(i, mapToNode[accounts[i][j]]);
                 }
             }
         }
@@ -58,7 +57,7 @@ public:
         vector<string>storage[accounts.size()];
         for(auto&x:mapToNode)
         {
-            int upar=ds.findUprnt(x.second);
+            int upar=ds.findUParent(x.second);
             storage[upar].push_back(x.first);
         }
         vector<vector<string>> ans;
