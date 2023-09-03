@@ -33,10 +33,7 @@ public:
         while(j<str.size())
         {
             if((long long )m*10+(str[j]-'0')>INT_MAX)
-            {
-                if(neg)return INT_MIN;
-                return INT_MAX;
-            }
+            return neg==true?INT_MIN:INT_MAX;
             m=m*10+(str[j]-'0');
             j++;
         }
