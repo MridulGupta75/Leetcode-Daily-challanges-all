@@ -20,16 +20,13 @@ public:
             }
             else return 0;
             }
+            
             else
-            {
-                   if(x>='0'&&x<='9')
-                   {
-                       str+=x;
-                   }
-                else break;
-            }
+               if(x>='0'&&x<='9') str+=x;
+               else break;
         }
         int m=0,j=0;
+        
         while(j<str.size())
         {
             if((long long )m*10+(str[j]-'0')>INT_MAX)
