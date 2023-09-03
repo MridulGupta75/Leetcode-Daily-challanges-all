@@ -32,7 +32,7 @@ public:
         int m=0,j=0;
         while(j<str.size())
         {
-            if((long long )m*10>INT_MAX||(long long )m*10+(str[j]-'0')>INT_MAX)
+            if((long long )m*10+(str[j]-'0')>INT_MAX)
             {
                 if(neg)return INT_MIN;
                 return INT_MAX;
