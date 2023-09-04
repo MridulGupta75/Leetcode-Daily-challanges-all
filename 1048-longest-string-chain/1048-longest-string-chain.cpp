@@ -1,19 +1,19 @@
 class Solution {
-public:
-    bool comp(string x,string y)
+    private:
+    
+    //check for string if one ele del it will make it
+    bool checkForString(string&x,string&y)
     {
-        if(x.length()-1!=y.length())return false;
-        
-        int p1=0,p2=0;
+        if(x.size()+1!=y.size())return false;
         bool flag=true;
-        while(p1!=x.length()&&p2!=y.length())
+        int p1=0,p2=0;
+        while(p1<x.size()&&p2<y.size())
         {
             if(x[p1]==y[p2])p1++,p2++;
             else
             {
-                if(p1==p2)
-                p1++;
-                else 
+                if(p1==p2)p2++;
+                else
                 {
                     flag=false;
                     break;
@@ -22,27 +22,22 @@ public:
         }
         return flag;
     }
-    static bool cop(string&a,string&b)
+    //sort with help of size
+    static bool comp(string&s,string&t)
     {
-        return a.size()<b.size();
+        return s.size()<t.size();
     }
+    
+public:
     int longestStrChain(vector<string>& words) {
-           sort(words.begin(),words.end(),cop);
+        sort(words.begin(),words.end(),comp);
         int n=words.size();
-        vector<int>dp(n,1);
-     
         int ans=1;
+        vector<int>dp(n,1);
         for(int i=1;i<n;i++)
         {
-            for(int j=0;j<i;j++)
-            {
-                if(comp(words[i],words[j])&&dp[j]+1>dp[i])
-                {
-                    dp[i]=dp[j]+1;
-                }
-            }
-            if(ans<dp[i])
-                ans=dp[i];
+            for(int j=0;j<i;j++) if(checkForString(words[j],words[i])&&dp[j]+1>dp[i]) dp[i]=dp[j]+1;
+            ans=max(ans,dp[i]);
         }
         return ans;
         
