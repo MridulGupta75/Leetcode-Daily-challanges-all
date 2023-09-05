@@ -10,16 +10,21 @@
  * };
  */
 class Solution {
-public:
+    private:
      int maxDepth(TreeNode* root) {
-        if(root==NULL)return 0;
-         int l=maxDepth(root->left);
-         int r=maxDepth(root->right);
-         if(l==-1||r==-1)return -1;
-         if(abs(l-r)>1)return -1;
-        return 1+max(l,r);
+        if(!root)return 0;
+        int l=maxDepth(root->left);
+        int r=maxDepth(root->right);
+        return (1+max(l,r));
     }
+public:
     bool isBalanced(TreeNode* root) {
-        return maxDepth(root)==-1?false:true;
+        if(!root)return true;
+        bool l=isBalanced(root->left);
+        bool m=isBalanced(root->right);
+        if(!l||!m)return false;
+        int lt=maxDepth(root->left);
+        int rt=maxDepth(root->right);
+        return abs(rt-lt)<=1?true:false;
     }
 };
