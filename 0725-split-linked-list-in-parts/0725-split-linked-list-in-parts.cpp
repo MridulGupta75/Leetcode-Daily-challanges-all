@@ -12,13 +12,17 @@ class Solution {
     private:
     int MID(ListNode* head)
     {
-        int c=0;
-        while(head!=NULL)
+        if(!head)return 0;
+        int c=1;
+        ListNode*fast=head;
+        while(fast&&fast->next&&fast->next->next)
         {
             c++;
             head=head->next;
+            fast=fast->next->next;
         }
-        return c;
+        if(fast->next)return c*2;
+        return c*2-1;
     }
 public:
     vector<ListNode*> splitListToParts(ListNode* head, int k) {
