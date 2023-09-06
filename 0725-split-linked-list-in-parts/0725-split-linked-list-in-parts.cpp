@@ -21,7 +21,8 @@ class Solution {
             head=head->next;
             fast=fast->next->next;
         }
-        return fast->next?c*2:c*2-1;
+        if(fast->next)return c*2;
+        return c*2-1;
     }
 public:
     vector<ListNode*> splitListToParts(ListNode* head, int k) {
