@@ -38,10 +38,7 @@ public:
             }
         }
          vector<int>sol;
-        for(auto&x:mpp)
-        {
-            sol.push_back(x.second);
-        }
+        for(auto&x:mpp) sol.push_back(x.second);
         return sol;
         
         
