@@ -10,21 +10,18 @@
  * };
  */
 class Solution {
-public:
-    bool isSymmetric(TreeNode* root) {
-       return isEq(root->right,root->left);
-        
+    private:
+    bool func(TreeNode* l,TreeNode*r)
+    {
+        if(!l||!r) return !l&&!r?true:false;
+        if(l->val!=r->val)return false;
+        bool ll=func(l->left,r->right);
+        ll=ll&&func(l->right,r->left);
+        return ll;
         
     }
-    
-    bool isEq(TreeNode* r,TreeNode* l)
-    {
-      // if(!r||!l)return r==l;
-        if(r==NULL&&l==NULL)return true;
-        else if(r==NULL||l==NULL)return false;
-        
-        if(r->val==l->val)
-        return(isEq(r->right,l->left)&&isEq(r->left,l->right));
-        return false;
+public:
+    bool isSymmetric(TreeNode* root) {
+        return func(root->left,root->right);
     }
 };
