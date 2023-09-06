@@ -19,36 +19,36 @@ public:
          func(root->left,sol,level+1);
     }
     vector<int> rightSideView(TreeNode* root) {
-        //Iterative
-   //       if(root==NULL)return {};
-   // queue<pair<TreeNode*,int>>q;
-   // map<int,int>mpp;
-   // q.push({root,0});
-   // while(!q.empty())
-   // {
-   //     int size=q.size();
-   //     for(int i=0;i<size;i++)
-   //     {
-   //         TreeNode*node=q.front().first;
-   //         int ht=q.front().second;
-   //         q.pop();
-   //         mpp[ht]=node->val;
-   //          if(node->left!=NULL)q.push({node->left,ht+1});
-   //          if(node->right!=NULL)q.push({node->right,ht+1});
-   //     }
-   // }
-   //  vector<int>sol;
-   //  for(auto&x:mpp)
-   //  {
-   //     sol.push_back(x.second);
-   //  }
-   //  return sol;
-        
-        
-        //recursive
-        vector<int>sol;
-        func(root,sol,0);
+        // Iterative
+         if(!root)return {};
+        queue<pair<TreeNode*,int>>q;
+        q.push({root,0});
+        map<int,int>mpp;
+        while(!q.empty())
+        {
+            int size=q.size();
+            while(size--)
+            {
+                auto x=q.front();
+                q.pop();
+                mpp[x.second]=x.first->val;
+                if(x.first->left)q.push({x.first->left,x.second+1});
+                if(x.first->right)q.push({x.first->right,x.second+1});
+                
+            }
+        }
+         vector<int>sol;
+        for(auto&x:mpp)
+        {
+            sol.push_back(x.second);
+        }
         return sol;
+        
+        
+        // //recursive
+        // vector<int>sol;
+        // func(root,sol,0);
+        // return sol;
         
         
         
