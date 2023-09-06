@@ -30,7 +30,8 @@ public:
         int number=c/k;
         int rem=c%k;
         ListNode*temp=head;
-        vector<ListNode*>sol;
+        vector<ListNode*>sol(k,NULL);
+        int i=0;
         if(number)
         {
             while(temp)
@@ -46,7 +47,7 @@ public:
                 }
                  ListNode*t=k->next;
                 k->next=NULL;
-                sol.push_back(temp);
+                sol[i++]=temp;
                 temp=t;
             }
         }
@@ -57,11 +58,11 @@ public:
            {
                    ListNode*t=temp->next;
                    temp->next=NULL;
-                    sol.push_back(temp);
+                    sol[i++]=temp;
                    temp=t;
            }
-           while(v--)
-               sol.push_back(NULL);
+           // while(v--)
+           //     sol.push_back(NULL);
            
        }
         return sol;
