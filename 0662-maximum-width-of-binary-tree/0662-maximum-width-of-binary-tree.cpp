@@ -32,8 +32,7 @@ public:
                 int f=q.front().second;
                 maxi=max(maxi,(l-f+1));
             }
-            int l,f;
-           
+            
             for(int i=0;i<size;i++)
             {
                 TreeNode*node=q.front().first;
