@@ -10,12 +10,6 @@
  * };
  */
 class Solution {
-    private:
-    int func(int i,bool t)
-    {
-        return t?((2*i)+1):((2*i)+2);
-    }
-    
 public:
     int widthOfBinaryTree(TreeNode* root) {
         if(root==NULL)return 0;
