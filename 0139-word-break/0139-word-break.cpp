@@ -16,8 +16,21 @@ class Solution {
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
         for(auto&x:wordDict)Dict_to_set.insert(x);
-        vector<int>DP(s.size(),-1);
-        int n=s.size()-1;
-       return  solve(0,n,s,DP);
+        vector<bool>DP(s.size(),0);
+       //  int n=s.size()-1;
+       // return  solve(0,n,s,DP);
+        for(int index=0;index<s.size();index++) 
+            if(Dict_to_set.find(s.substr(index))!=Dict_to_set.end())
+                DP[index]=true;
+        for(int index=s.size()-1;index>=0;index--)
+        {
+              for(int i=index;i<s.size();i++)
+                {
+                   if(Dict_to_set.find(s.substr(index,i-index+1))!=Dict_to_set.end()&&DP[i+1])
+                       DP[index]=true;
+                }
+            
+        }
+        return DP[0];
     }
 };
