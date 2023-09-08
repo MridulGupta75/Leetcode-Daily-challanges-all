@@ -1,28 +1,22 @@
 class Solution {
-public:
-    set<string>st;
-    bool func(int ind,string&s,vector<int>&dp)
+    private:
+    set<string>Dict_to_set;
+    bool solve(int index,int n,string&s,vector<vector<int>>&DP)
     {
-        if(ind>s.size())return  false;
-    
-        
-
-        if(st.find(s.substr(ind))!=st.end())return true;
-        if(dp[ind]!=-1)return dp[ind];
-        
-        for(int i=1;i<s.size();i++)
+        if(index>n)return false;
+        if(Dict_to_set.find(s.substr(index))!=Dict_to_set.end())return true;
+        if(DP[index][n]!=-1)return DP[index][n];
+        for(int i=index;i<=n;i++)
         {
-            cout<<s.substr(ind,i)<<" ";
-            if(st.find(s.substr(ind,i))!=st.end()&&func(i+ind,s,dp))
-            {
-              return dp[ind]=true;
-            }
+           if(Dict_to_set.find(s.substr(index,i-index+1))!=Dict_to_set.end()&&solve(i+1,n,s,DP))
+               return DP[index][n]=true;
         }
-        return dp[ind]=false;
+        return DP[index][n]=false;
     }
+public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        vector<int>dp(s.size(),-1);
-        for(auto&x:wordDict)st.insert(x);
-        return func(0,s,dp);
+        for(auto&x:wordDict)Dict_to_set.insert(x);
+        vector<vector<int>>DP(s.size(),vector<int>(s.size(),-1));
+       return  solve(0,s.size()-1,s,DP);
     }
 };
