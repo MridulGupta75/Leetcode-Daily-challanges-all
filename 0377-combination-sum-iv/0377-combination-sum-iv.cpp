@@ -5,8 +5,10 @@ class Solution {
         int ans=0;
         if(dp[target]!=-1)return dp[target];
         for(int i=0;i<nums.size();i++)
-          if(target>=nums[i]) ans+=solve(target-nums[i],nums,dp);  
-             else break;
+        {
+            if(target>=nums[i]) ans+=solve(target-nums[i],nums,dp);  
+            else break;
+        }
        return  dp[target]=ans;
     }
 public:
