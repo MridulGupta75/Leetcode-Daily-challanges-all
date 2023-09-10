@@ -1,42 +1,43 @@
 
- class DijointSet
-    {
-        private:
-     vector<int>parent,size;
-     public:
-     DijointSet(int N)
+ class DisjointSet
+{
+ public:
+ vector<int>parent;
+ vector<int>size;
+ DisjointSet(int n)
+ {
+     parent.resize(n+1);
+     size.resize(n+1,1);
+    for(int i=0;i<=n;i++)parent[i]=i;
+ }
+ int findUParent(int x)
+ {
+     if(x==parent[x])return x;
+     return parent[x]=findUParent(parent[x]);
+ }
+ void UnionBySize(int u,int v)
+ {
+     int upu=findUParent(u);
+     int upv=findUParent(v);
+     if(upu==upv)return ;
+     if(size[upu]<upv)
      {
-         parent.resize(N+1);
-         size.resize(N+1,1);
-         for(int i=0;i<=N;i++)parent[i]=i;
+         parent[upu]=upv;
+         size[upv]+=size[upu];
      }
-     int findUParent(int x)
+     else
      {
-         if(x==parent[x])return x;
-         return parent[x]=findUParent(parent[x]);
+         parent[upv]=upu;
+         size[upu]+=size[upv];
      }
-     void UnionBySize(int u,int v)
-     {
-         int upu=findUParent(u);
-         int upv=findUParent(v);
-         if(upu==upv)return ;
-         if(size[upu]<size[upv])
-         {
-             parent[upu]=upv;
-             size[upv]+=size[upu];
-         }
-         else
-         {
-              parent[upv]=upu;
-             size[upu]+=size[upv];
-         }
-     }
-     
-    };    
+ }
+};
+
+
 class Solution {
 public:
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-        DijointSet ds(accounts.size());
+        DisjointSet ds(accounts.size());
         map<string,int>mapToNode;
         
         for(int i=0;i<accounts.size();i++)
