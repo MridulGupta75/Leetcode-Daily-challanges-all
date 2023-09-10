@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isRobotBounded(string commands) {
-         int x = 0;
+        int x = 0;
         int y = 0;
         
         vector<vector<int>>coordinates{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
@@ -21,10 +21,11 @@ public:
             }
         }
         
-       if((x == 0 & y == 0) || (direction != 0)) {
+       if((x == 0 & y == 0)) {
            return true;
        }
+        if(direction==0)return false;
        
-       return false;
+       return true;
     }
 };
