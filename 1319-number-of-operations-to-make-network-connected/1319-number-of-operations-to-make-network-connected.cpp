@@ -3,20 +3,19 @@ class DisjointSet
   public:
     vector<int>parent;
     vector<int>size;
-  DisjointSet(int N)
-  {
-      parent.resize(N+1);
-      size.resize(N+1,1);
-      for(int i=0;i<=N;i++)
-          parent[i]=i;
-      
-  }
+    DisjointSet(int n)
+    {
+        parent.resize(n+1);
+        size.resize(n+1,1);
+        for(int i=0;i<=n;i++)
+            parent[i]=i;
+    }
     int fup(int x)
     {
         if(x==parent[x])return x;
         return parent[x]=fup(parent[x]);
     }
-    void ubs(int u,int v)
+    void ubs(int v,int u)
     {
         int upu=fup(u);
         int upv=fup(v);
@@ -24,14 +23,15 @@ class DisjointSet
         if(size[upu]<size[upv])
         {
             parent[upu]=upv;
-            size[upv]=size[upv]+size[upu];
+            size[upv]+=size[upu];
         }
         else
         {
-            parent[upv]=upu;
-            size[upu]=size[upu]+size[upv];
+             parent[upv]=upu;
+            size[upu]+=size[upv];
         }
     }
+    
 };
 
 
