@@ -4,7 +4,7 @@ public:
         int x = 0;
         int y = 0;
                                       // N       S      E         W
-        vector<vector<int>>coordinates{{1, 0}, {-1, 0}, {0, 1}, {0,-1}};
+        vector<pair<int,int>>coordinates{{1, 0}, {-1, 0}, {0, 1}, {0,-1}};
         
              int dir=0;
         
@@ -23,16 +23,13 @@ public:
                 else dir=0;
             }
             else {
-                x += coordinates[dir][0];
-                y += coordinates[dir][1];
+                x += coordinates[dir].first;
+                y += coordinates[dir].second;
             }
         }
         
-       if((x == 0 & y == 0)) {
-           return true;
-       }
-        if(dir==0)return false;
+       if((x == 0 & y == 0)||dir!=0)  return true;
        
-       return true;
+       return false;
     }
 };
