@@ -9,18 +9,9 @@ public:
         int c=0;
         for(auto&x:m)
         {
-            if(x.first==0)continue;
+            if(x.first==0)return c;
             int size=x.second.size();
-            
-            if(size-1!=0)
-            {
-                for(int i=1;i<size;i++)
-                {
-                m[x.first-1].push_back(x.second[i]);
-                    c++;
-                }
-                    
-            }
+            if(size-1!=0) for(int i=1;i<size;i++,c++) m[x.first-1].push_back(x.second[i]);
         }
         return c;
         
