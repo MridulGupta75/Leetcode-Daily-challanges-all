@@ -29,12 +29,17 @@ public:
         for(int i=0;i<26;i++)
         {
             
+            if(st.find(freq[i])==st.end())
+            {
+                st.insert(freq[i]);
+                continue;
+            }
             while(freq[i]>0&&st.find(freq[i])!=st.end())
             {
                 freq[i]--;
                 c++;
             }
-            st.insert(freq[i]);
+            if(freq[i]>0) st.insert(freq[i]);
             
         }
         return c;
