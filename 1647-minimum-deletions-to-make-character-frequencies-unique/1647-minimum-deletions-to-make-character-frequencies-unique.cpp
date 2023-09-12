@@ -5,14 +5,8 @@ public:
         for(auto&x:s)mpp[x]++;
         map<int,vector<char>,greater<int>>m;
         for(auto&x:mpp) m[x.second].push_back(x.first);
+        mpp.clear();
         int c=0;
-        //   for(auto&x:m)
-        // {
-        //     cout<<x.first<<" ";
-        //     for(auto&y:x.second)
-        //         cout<<y<<" ";
-        //     cout<<endl;
-        // }
         for(auto&x:m)
         {
             if(x.first==0)continue;
