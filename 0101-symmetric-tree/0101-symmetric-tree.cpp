@@ -15,7 +15,7 @@ class Solution {
     {
         if(!root1||!root2) return !root1&&!root2?true:false;
         if(root1->val!=root2->val)return false;
-        return func(root1->left,root2->right)&&func(root1->right,root2->left);
+        return func(root1->left,root2->right)&func(root1->right,root2->left);
     }
 public:
     bool isSymmetric(TreeNode* root) {
