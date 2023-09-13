@@ -11,14 +11,15 @@
  */
 class Solution {
     private:
-    bool func(TreeNode* l,TreeNode*r)
+    bool func(TreeNode*root1,TreeNode*root2)
     {
-        if(!l||!r) return !l&&!r?true:false;
-        if(l->val!=r->val)return false;
-        return func(l->left,r->right)&&func(l->right,r->left);
+        if(!root1||!root2) return !root1&&!root2?true:false;
+        if(root1->val!=root2->val)return false;
+        return func(root1->left,root2->right)&&func(root1->right,root2->left);
     }
 public:
     bool isSymmetric(TreeNode* root) {
+        if(!root)return true;
         return func(root->left,root->right);
     }
 };
