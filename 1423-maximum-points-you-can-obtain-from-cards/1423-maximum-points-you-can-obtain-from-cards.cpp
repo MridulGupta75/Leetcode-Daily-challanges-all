@@ -12,7 +12,7 @@ public:
         while(j<c.size())
         {
              
-            cout<<tot-sum<<" ";
+           
             ans=max(ans,tot-sum);
             j++;
             if(j==c.size())continue;
