@@ -1,29 +1,36 @@
+
+
 class Solution {
+    private:
+    vector<int>Indeg;
+   
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<int>indeg(numCourses,0);
-       vector<int>adj[numCourses];
-        for(auto&x:prerequisites)
+         vector<int>adj[numCourses];
+        Indeg.resize(numCourses,0);
+        for(auto&x:prerequisites) 
         {
             adj[x[1]].push_back(x[0]);
-            indeg[x[0]]++;
+            Indeg[x[0]]++;
         }
         queue<int>q;
-        for(int i=0;i<indeg.size();i++) if(indeg[i]==0) q.push(i);
-        int c=0;          
-        
+        for(int i=0;i<Indeg.size();i++)
+            if(!Indeg[i])q.push(i);
         while(!q.empty())
         {
             int ele=q.front();
             q.pop();
-            c++;
             for(auto&x:adj[ele])
             {
-                indeg[x]--;
-                if(indeg[x]==0)q.push(x);
+                if(Indeg[x])
+                {
+                    Indeg[x]--;
+                    if(!Indeg[x])q.push(x);
+                }
             }
         }
-        return c==numCourses?true:false;                                             
+        for(auto&x:Indeg)if(x)return false;
         
+        return true;
     }
 };
