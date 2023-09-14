@@ -2,8 +2,6 @@ class Solution {
     private:
     bool check(vector<int>v)
     {
-        // if(v[0]&&v[1]&&v[2]) return true;
-        // return false;
         if(v[0]==-1||v[1]==-1||v[2]==-1)return false;
         return true;
     }
@@ -15,7 +13,6 @@ public:
         int count =0;
         while(j<s.size())
         {
-            
             if(s[j]=='a')mp[0]=j;
             else if(s[j]=='b')mp[1]=j;
             else mp[2]=j;
