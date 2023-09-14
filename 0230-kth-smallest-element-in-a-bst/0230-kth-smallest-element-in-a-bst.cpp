@@ -22,7 +22,6 @@ private:
     }
 public:
     int kthSmallest(TreeNode* root, int k) {
-      // vector<int>sol;
         int c=0;
         func(root,c,k);
         return ans;
