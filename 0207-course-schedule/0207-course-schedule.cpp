@@ -16,10 +16,12 @@ public:
         queue<int>q;
         for(int i=0;i<Indeg.size();i++)
             if(!Indeg[i])q.push(i);
+        int c=0;
         while(!q.empty())
         {
             int ele=q.front();
             q.pop();
+            c++;
             for(auto&x:adj[ele])
             {
                 if(Indeg[x])
@@ -29,8 +31,6 @@ public:
                 }
             }
         }
-        for(auto&x:Indeg)if(x)return false;
-        
-        return true;
+     return c==numCourses?true:false;
     }
 };
