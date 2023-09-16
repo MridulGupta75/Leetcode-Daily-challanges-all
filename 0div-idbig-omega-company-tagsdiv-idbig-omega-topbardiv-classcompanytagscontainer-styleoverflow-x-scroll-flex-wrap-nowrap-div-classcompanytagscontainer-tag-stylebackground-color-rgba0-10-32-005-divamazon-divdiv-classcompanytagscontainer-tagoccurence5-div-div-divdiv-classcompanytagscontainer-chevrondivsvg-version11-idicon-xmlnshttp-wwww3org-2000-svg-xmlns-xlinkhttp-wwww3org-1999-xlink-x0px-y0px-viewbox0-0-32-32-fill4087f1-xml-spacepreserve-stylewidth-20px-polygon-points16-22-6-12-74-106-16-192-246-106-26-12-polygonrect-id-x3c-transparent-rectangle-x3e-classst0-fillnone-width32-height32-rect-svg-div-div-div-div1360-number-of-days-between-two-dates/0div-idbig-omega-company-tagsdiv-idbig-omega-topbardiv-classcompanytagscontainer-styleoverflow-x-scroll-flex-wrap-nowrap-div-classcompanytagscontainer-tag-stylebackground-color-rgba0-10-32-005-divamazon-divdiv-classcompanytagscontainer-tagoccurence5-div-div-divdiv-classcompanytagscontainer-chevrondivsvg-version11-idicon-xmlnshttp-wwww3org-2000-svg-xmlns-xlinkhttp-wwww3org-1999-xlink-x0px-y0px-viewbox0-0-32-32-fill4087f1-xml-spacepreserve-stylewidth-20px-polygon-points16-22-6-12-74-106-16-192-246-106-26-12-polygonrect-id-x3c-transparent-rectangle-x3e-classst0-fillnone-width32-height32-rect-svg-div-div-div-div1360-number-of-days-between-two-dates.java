@@ -1,4 +1,4 @@
-import java.time.*;
+import java.time.LocalDate;
 class Solution {
     public int daysBetweenDates(String date1, String date2) {
        LocalDate a=LocalDate.parse(date1);
