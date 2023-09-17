@@ -1,6 +1,7 @@
-typedef pair<int,int> P;
+
 class Solution {
-    private:
+private:
+    typedef pair<int,int> P;
      queue<P>q;
      set<P>st;
 public:
@@ -23,7 +24,6 @@ public:
             {
             auto pr=q.front();
             q.pop();
-            // if(pr.second==stop)return path;
                 for(auto&x:graph[pr.first])
                 {
                     //x ->2  0001 |  0010 {x,bit}
