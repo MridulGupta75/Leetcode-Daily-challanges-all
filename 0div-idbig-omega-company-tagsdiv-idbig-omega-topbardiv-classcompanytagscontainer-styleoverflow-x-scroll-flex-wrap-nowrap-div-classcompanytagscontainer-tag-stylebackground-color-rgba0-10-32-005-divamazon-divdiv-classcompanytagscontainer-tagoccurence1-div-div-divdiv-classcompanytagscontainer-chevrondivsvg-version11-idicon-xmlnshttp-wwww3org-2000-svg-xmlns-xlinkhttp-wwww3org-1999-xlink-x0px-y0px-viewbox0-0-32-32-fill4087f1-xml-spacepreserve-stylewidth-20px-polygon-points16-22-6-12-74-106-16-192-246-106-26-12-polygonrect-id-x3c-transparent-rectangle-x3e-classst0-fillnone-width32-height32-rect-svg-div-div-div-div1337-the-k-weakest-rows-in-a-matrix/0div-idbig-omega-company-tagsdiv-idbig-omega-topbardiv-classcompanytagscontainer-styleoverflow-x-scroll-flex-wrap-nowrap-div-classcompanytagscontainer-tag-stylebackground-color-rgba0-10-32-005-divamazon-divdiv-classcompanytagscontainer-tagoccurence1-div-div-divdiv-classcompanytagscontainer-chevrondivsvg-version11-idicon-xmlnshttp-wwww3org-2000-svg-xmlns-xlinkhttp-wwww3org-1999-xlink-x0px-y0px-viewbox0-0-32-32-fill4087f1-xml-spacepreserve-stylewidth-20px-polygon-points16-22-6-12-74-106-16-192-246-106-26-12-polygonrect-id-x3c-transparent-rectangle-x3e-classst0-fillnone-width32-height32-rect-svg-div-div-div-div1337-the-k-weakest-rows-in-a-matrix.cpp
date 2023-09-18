@@ -8,7 +8,6 @@ public:
         {
             int c=lower_bound(mat[i].rbegin(), mat[i].rend(),1)-mat[i].rbegin();
             c=m-c;
-            // cout<<c;
             pq.push({c,i});
             if(pq.size()>k)pq.pop();
         }
