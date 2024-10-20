@@ -1,19 +1,25 @@
 class Solution {
+    private:
+    stack<char>st;
 public:
     bool isValid(string s) {
-        if(s.length()%2!=0)return false;
-        stack<char>st;
-        for(char &x:s)
+        for(auto&x:s)
         {
-          
-            if(st.empty())
+            if(x=='('||x=='['||x=='{')
+            {
                 st.push(x);
-            else if((st.top()=='('&&x==')')||(st.top()=='{'&&x=='}')||(st.top()=='['&&x==']'))
-                st.pop();
-            else st.push(x);
-        
-          
+            }
+            else
+            {
+                if(st.empty())return false;
+                if(st.top()==x-2||st.top()==x-1) 
+                {
+                    st.pop();
+                    continue;
+                }
+                else return false;
+            }
         }
-        return st.empty();
+         return st.empty()?true:false;
     }
 };
