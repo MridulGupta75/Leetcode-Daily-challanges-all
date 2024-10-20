@@ -13,7 +13,7 @@ public:
                     st.pop();
                     continue;
                 }
-                else return false;
+                return false;
             }
         }
          return st.empty()?true:false;
