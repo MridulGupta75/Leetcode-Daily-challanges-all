@@ -14,4 +14,8 @@
 |  |
 | ------- |
 | [0155-min-stack](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0155-min-stack) |
+## Array
+|  |
+| ------- |
+| [1878-check-if-array-is-sorted-and-rotated](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/1878-check-if-array-is-sorted-and-rotated) |
 <!---LeetCode Topics End-->
