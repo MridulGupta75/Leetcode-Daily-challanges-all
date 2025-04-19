@@ -7,23 +7,10 @@ public:
         int c=d-1;
         int temp[k];
         int cc=0;
-        for(int i=d;i<nums.size();i++)
-        {
-            temp[cc++]=nums[i];
-        }
+        for(int i=d;i<nums.size();i++) temp[cc++]=nums[i];
 
-        for(int j=nums.size()-1;c>=0;j--)
-        {
-            if(c>=0)nums[j]=nums[c--];
+        for(int j=nums.size()-1;c>=0;j--) if(c>=0)nums[j]=nums[c--];
+        for(int i=0;i<k;i++)nums[i]=temp[i];
         }
-      for(auto&x:nums)cout<<x<<" "<<endl;
-        for(int i=0;i<k;i++)
-        {
-            nums[i]=temp[i];
-        }
-        }
-        
-        
-
     }
 };
