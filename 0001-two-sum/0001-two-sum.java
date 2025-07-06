@@ -11,6 +11,10 @@ class Solution {
             }
           mpp.put(nums[i],i);
         }
+        Stack<String> li =new Stack<>();
+         li.push("sdfghjk");
+         li.push("qwertyuhj");
+         System.out.println(li.peek());
        return arr;
 
 
