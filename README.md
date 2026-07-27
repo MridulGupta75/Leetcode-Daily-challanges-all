@@ -38,6 +38,7 @@
 ## Math
 |  |
 | ------- |
+| [0050-powx-n](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0050-powx-n) |
 | [0189-rotate-array](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0189-rotate-array) |
 ## Hash Table
 |  |
@@ -71,4 +72,8 @@
 |  |
 | ------- |
 | [0237-delete-node-in-a-linked-list](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0237-delete-node-in-a-linked-list) |
+## Recursion
+|  |
+| ------- |
+| [0050-powx-n](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0050-powx-n) |
 <!---LeetCode Topics End-->
