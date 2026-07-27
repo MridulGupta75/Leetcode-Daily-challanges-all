@@ -5,6 +5,7 @@
 |  |
 | ------- |
 | [0020-valid-parentheses](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0020-valid-parentheses) |
+| [0022-generate-parentheses](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0022-generate-parentheses) |
 ## Stack
 |  |
 | ------- |
@@ -62,6 +63,7 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0022-generate-parentheses](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0022-generate-parentheses) |
 | [0053-maximum-subarray](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0053-maximum-subarray) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0121-best-time-to-buy-and-sell-stock) |
 ## Simulation
@@ -76,4 +78,8 @@
 |  |
 | ------- |
 | [0050-powx-n](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0050-powx-n) |
+## Backtracking
+|  |
+| ------- |
+| [0022-generate-parentheses](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0022-generate-parentheses) |
 <!---LeetCode Topics End-->
