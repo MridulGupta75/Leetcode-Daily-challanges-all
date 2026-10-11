@@ -22,6 +22,7 @@
 | [0026-remove-duplicates-from-sorted-array](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0053-maximum-subarray](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0053-maximum-subarray) |
 | [0075-sort-colors](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0075-sort-colors) |
+| [0078-subsets](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0078-subsets) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0169-majority-element](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0169-majority-element) |
 | [0189-rotate-array](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0189-rotate-array) |
@@ -82,4 +83,9 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0022-generate-parentheses) |
+| [0078-subsets](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0078-subsets) |
+## Bit Manipulation
+|  |
+| ------- |
+| [0078-subsets](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0078-subsets) |
 <!---LeetCode Topics End-->
