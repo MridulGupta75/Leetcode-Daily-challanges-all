@@ -30,6 +30,7 @@
 | [0283-move-zeroes](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0283-move-zeroes) |
 | [1878-check-if-array-is-sorted-and-rotated](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/1878-check-if-array-is-sorted-and-rotated) |
 | [2149-rearrange-array-elements-by-sign](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/2149-rearrange-array-elements-by-sign) |
+| [2778-sum-of-squares-of-special-elements](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/2778-sum-of-squares-of-special-elements) |
 ## Two Pointers
 |  |
 | ------- |
@@ -90,4 +91,8 @@
 |  |
 | ------- |
 | [0078-subsets](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0078-subsets) |
+## Enumeration
+|  |
+| ------- |
+| [2778-sum-of-squares-of-special-elements](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/2778-sum-of-squares-of-special-elements) |
 <!---LeetCode Topics End-->
