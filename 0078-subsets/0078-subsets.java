@@ -1,7 +1,7 @@
 class Solution {
     public void fun(int []nums,int i,int size,List<Integer>subsol,List<List<Integer>>sol )
     {
-    //    if(size<=i)return;
+       if(size<i)return;
        if(size==i){
         sol.add(new ArrayList<>(subsol));
         return;
