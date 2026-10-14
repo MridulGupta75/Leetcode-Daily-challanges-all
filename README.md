@@ -44,6 +44,7 @@
 | ------- |
 | [0050-powx-n](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0050-powx-n) |
 | [0189-rotate-array](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/0189-rotate-array) |
+| [3723-maximize-sum-of-squares-of-digits](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/3723-maximize-sum-of-squares-of-digits) |
 ## Hash Table
 |  |
 | ------- |
@@ -95,4 +96,8 @@
 |  |
 | ------- |
 | [2778-sum-of-squares-of-special-elements](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/2778-sum-of-squares-of-special-elements) |
+## Greedy
+|  |
+| ------- |
+| [3723-maximize-sum-of-squares-of-digits](https://github.com/MridulGupta75/Leetcode-Daily-challanges-all/tree/master/3723-maximize-sum-of-squares-of-digits) |
 <!---LeetCode Topics End-->
